@@ -1,0 +1,49 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Menus/Scripts/VideoSettings.gd" type="Script" id=1]
+[ext_resource path="res://addons/GGS/src/components/boolean/ggsBool.tscn" type="PackedScene" id=2]
+[ext_resource path="res://addons/GGS/src/components/boolean/ggs_bool.gd" type="Script" id=3]
+[ext_resource path="res://addons/GGS/src/components/option_list/ggsOptionList.tscn" type="PackedScene" id=4]
+[ext_resource path="res://addons/GGS/src/components/option_list/ggs_option_list.gd" type="Script" id=5]
+
+[node name="VideoSettings" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="window_fullscreen" type="CheckButton" parent="." instance=ExtResource( 2 )]
+margin_left = 413.0
+margin_top = 80.0
+margin_right = 559.0
+margin_bottom = 120.0
+shortcut_in_tooltip = false
+text = "Fullscreen"
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+setting_index = 14
+
+[node name="window_resolution" type="OptionButton" parent="." instance=ExtResource( 4 )]
+margin_left = 450.0
+margin_top = 225.0
+margin_right = 522.0
+margin_bottom = 245.0
+text = "Item 0"
+script = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+setting_index = 15
+
+[node name="BackButton" type="Button" parent="."]
+margin_left = 456.0
+margin_top = 316.0
+margin_right = 498.0
+margin_bottom = 336.0
+text = "Back"
+
+[connection signal="pressed" from="BackButton" to="." method="_on_BackButton_pressed"]

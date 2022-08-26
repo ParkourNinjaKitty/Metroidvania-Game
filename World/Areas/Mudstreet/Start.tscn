@@ -1,0 +1,156 @@
+[gd_scene load_steps=14 format=2]
+
+[ext_resource path="res://World/Assets/Mudstreet/Grass_tileset.tres" type="TileSet" id=1]
+[ext_resource path="res://Player/Scenes/Player.tscn" type="PackedScene" id=2]
+[ext_resource path="res://World/LevelSpawn.tscn" type="PackedScene" id=3]
+[ext_resource path="res://World/LevelExit.tscn" type="PackedScene" id=4]
+[ext_resource path="res://World/Assets/Mudstreet/Movement_sign.png" type="Texture" id=5]
+[ext_resource path="res://World/Assets/Mudstreet/Attack_sign.png" type="Texture" id=6]
+[ext_resource path="res://World/Assets/Mudstreet/Jump_sign.png" type="Texture" id=7]
+[ext_resource path="res://World/Assets/Mudstreet/Moon.tscn" type="PackedScene" id=8]
+[ext_resource path="res://World/Assets/Mudstreet/Star.tscn" type="PackedScene" id=9]
+[ext_resource path="res://World/SavePoint.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Player/Scenes/Camera2D.tscn" type="PackedScene" id=11]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 8, 4 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 4, 8 )
+
+[node name="Mudstreet" type="Node2D" groups=["Parent"]]
+
+[node name="BackgroundColor" type="ColorRect" parent="."]
+margin_left = -8.0
+margin_top = -64.0
+margin_right = 264.0
+margin_bottom = 24.0
+color = Color( 0.0509804, 0, 0.360784, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Moon" parent="BackgroundColor" instance=ExtResource( 8 )]
+position = Vector2( 229, 23 )
+
+[node name="Stars" type="Node2D" parent="BackgroundColor"]
+position = Vector2( 0, 3 )
+
+[node name="Star" parent="BackgroundColor/Stars" instance=ExtResource( 9 )]
+position = Vector2( 56, 15 )
+
+[node name="Star3" parent="BackgroundColor/Stars" instance=ExtResource( 9 )]
+position = Vector2( 54, 38 )
+
+[node name="Star2" parent="BackgroundColor/Stars" instance=ExtResource( 9 )]
+position = Vector2( 30, 25 )
+
+[node name="Star4" parent="BackgroundColor/Stars" instance=ExtResource( 9 )]
+position = Vector2( 84, 31 )
+
+[node name="Star5" parent="BackgroundColor/Stars" instance=ExtResource( 9 )]
+position = Vector2( 174, 44 )
+
+[node name="Star6" parent="BackgroundColor/Stars" instance=ExtResource( 9 )]
+position = Vector2( 102, 12 )
+
+[node name="Star7" parent="BackgroundColor/Stars" instance=ExtResource( 9 )]
+position = Vector2( 108, 38 )
+
+[node name="Star9" parent="BackgroundColor/Stars" instance=ExtResource( 9 )]
+position = Vector2( 152, 25 )
+
+[node name="Star10" parent="BackgroundColor/Stars" instance=ExtResource( 9 )]
+position = Vector2( 136, 45 )
+
+[node name="Star11" parent="BackgroundColor/Stars" instance=ExtResource( 9 )]
+position = Vector2( 214, 41 )
+
+[node name="Star13" parent="BackgroundColor/Stars" instance=ExtResource( 9 )]
+position = Vector2( 176, 17 )
+
+[node name="Star14" parent="BackgroundColor/Stars" instance=ExtResource( 9 )]
+position = Vector2( 130, 16 )
+
+[node name="Star16" parent="BackgroundColor/Stars" instance=ExtResource( 9 )]
+position = Vector2( 73, 9 )
+
+[node name="Star19" parent="BackgroundColor/Stars" instance=ExtResource( 9 )]
+position = Vector2( 248, 29 )
+
+[node name="Star21" parent="BackgroundColor/Stars" instance=ExtResource( 9 )]
+position = Vector2( 207, 11 )
+
+[node name="MainTilemap" type="TileMap" parent="."]
+tile_set = ExtResource( 1 )
+cell_size = Vector2( 8, 8 )
+format = 1
+tile_data = PoolIntArray( -458753, 0, 0, -524288, 0, 2, -524257, 0, 0, -524256, 0, 2, -393217, 0, 65536, -458752, 0, 65538, -458721, 0, 65536, -458720, 0, 65538, -327681, 0, 65536, -393216, 0, 65538, -393185, 0, 65536, -393184, 0, 65538, -262145, 0, 65536, -327680, 0, 65538, -327649, 0, 65536, -327648, 0, 65538, -196609, 0, 65536, -262144, 0, 65538, -262113, 0, 65536, -262112, 0, 65538, -131073, 0, 65536, -196608, 0, 65538, -196577, 0, 65536, -196576, 0, 65538, -65537, 0, 65536, -131072, 0, 65538, -131041, 0, 65536, -131040, 0, 65538, -1, 0, 65536, -65536, 0, 65538, -65505, 0, 65536, -65504, 0, 65538, 65535, 0, 65536, 0, 0, 131077, 1, 0, 1, 2, 0, 1, 3, 0, 1, 4, 0, 1, 5, 0, 1, 6, 0, 1, 7, 0, 1, 8, 0, 1, 9, 0, 1, 10, 0, 1, 11, 0, 1, 12, 0, 1, 13, 0, 1, 14, 0, 1, 15, 0, 1, 16, 0, 1, 17, 0, 1, 18, 0, 1, 19, 0, 1, 20, 0, 1, 21, 0, 1, 22, 0, 2, 25, 0, 0, 26, 0, 1, 27, 0, 1, 28, 0, 1, 29, 0, 1, 30, 0, 1, 31, 0, 131078, 32, 0, 65538, 131071, 0, 65536, 65536, 0, 65537, 65537, 0, 65537, 65538, 0, 65537, 65539, 0, 65537, 65540, 0, 65537, 65541, 0, 65537, 65542, 0, 65537, 65543, 0, 65537, 65544, 0, 65537, 65545, 0, 65537, 65546, 0, 65537, 65547, 0, 65537, 65548, 0, 65537, 65549, 0, 65537, 65550, 0, 65537, 65551, 0, 65537, 65552, 0, 65537, 65553, 0, 65537, 65554, 0, 65537, 65555, 0, 65537, 65556, 0, 65537, 65557, 0, 65537, 65558, 0, 65538, 65561, 0, 65536, 65562, 0, 65537, 65563, 0, 65537, 65564, 0, 65537, 65565, 0, 65537, 65566, 0, 65537, 65567, 0, 65537, 65568, 0, 65538, 196607, 0, 131072, 131072, 0, 131073, 131073, 0, 131073, 131074, 0, 131073, 131075, 0, 131073, 131076, 0, 131073, 131077, 0, 131073, 131078, 0, 131073, 131079, 0, 131073, 131080, 0, 131073, 131081, 0, 131073, 131082, 0, 131073, 131083, 0, 131073, 131084, 0, 131073, 131085, 0, 131073, 131086, 0, 131073, 131087, 0, 131073, 131088, 0, 131073, 131089, 0, 131073, 131090, 0, 131073, 131091, 0, 131073, 131092, 0, 131073, 131093, 0, 131073, 131094, 0, 65543, 131097, 0, 65540, 131098, 0, 131073, 131099, 0, 131073, 131100, 0, 131073, 131101, 0, 131073, 131102, 0, 131073, 131103, 0, 131073, 131104, 0, 131074, 196630, 0, 196612, 196631, 0, 196609, 196632, 0, 196609, 196633, 0, 196615 )
+
+[node name="Tutorial" type="Node2D" parent="."]
+visible = false
+
+[node name="MovementSign" type="Sprite" parent="Tutorial"]
+position = Vector2( 24, -24 )
+texture = ExtResource( 5 )
+centered = false
+
+[node name="JumpSign" type="Sprite" parent="Tutorial"]
+position = Vector2( 81, -24 )
+texture = ExtResource( 7 )
+centered = false
+
+[node name="AttackSign" type="Sprite" parent="Tutorial"]
+position = Vector2( 138, -24 )
+texture = ExtResource( 6 )
+centered = false
+
+[node name="LevelSpawns" type="Node2D" parent="."]
+
+[node name="LevelSpawner" parent="LevelSpawns" instance=ExtResource( 3 )]
+position = Vector2( 15, -4 )
+enter_direction_key = "Start"
+
+[node name="LevelSpawner2" parent="LevelSpawns" instance=ExtResource( 3 )]
+position = Vector2( 192, 10 )
+enter_direction_key = "SewerExit"
+spawn_velocity = Vector2( 160, -320 )
+default_direction = -1
+
+[node name="LevelExits" type="Node2D" parent="."]
+
+[node name="LevelExit" parent="LevelExits" instance=ExtResource( 4 )]
+position = Vector2( 192, 20 )
+next_level = "res://World/Areas/Sewers/Entrance.tscn"
+enter_direction_key = "Top"
+
+[node name="CollisionShape2D" parent="LevelExits/LevelExit" index="0"]
+shape = SubResource( 1 )
+
+[node name="SavePoints" type="Node2D" parent="."]
+
+[node name="SavePoint" parent="SavePoints" instance=ExtResource( 10 )]
+position = Vector2( 23, -8 )
+enter_direction_key = "Start"
+
+[node name="CollisionShape2D" parent="SavePoints/SavePoint" index="0"]
+shape = SubResource( 2 )
+
+[node name="Player" parent="." instance=ExtResource( 2 )]
+position = Vector2( 15, -4 )
+
+[node name="Camera2D" parent="Player" instance=ExtResource( 11 )]
+target = NodePath("..")
+
+[node name="TopLeft" parent="Player/Camera2D/Limits" index="0"]
+position = Vector2( 0, -56 )
+
+[node name="BottomRight" parent="Player/Camera2D/Limits" index="1"]
+position = Vector2( 256, 16 )
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+color = Color( 0.376471, 0.376471, 0.376471, 1 )
+
+[editable path="LevelExits/LevelExit"]
+[editable path="SavePoints/SavePoint"]
+[editable path="Player/Camera2D"]

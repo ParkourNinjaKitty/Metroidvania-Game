@@ -1,0 +1,116 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://Player/Scenes/Player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://World/Assets/Sewers/Sewer_sludge.tres" type="TileSet" id=2]
+[ext_resource path="res://World/Assets/Sewers/Sewer_tileset.tres" type="TileSet" id=3]
+[ext_resource path="res://Enemy/Bosses/Sewers/Scenes/RatKing.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Enemy/Bosses/BossroomDoorTrigger.tscn" type="PackedScene" id=5]
+[ext_resource path="res://World/LevelExit.tscn" type="PackedScene" id=6]
+[ext_resource path="res://World/LevelSpawn.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Player/Scenes/Camera2D.tscn" type="PackedScene" id=8]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 10, 28 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 4, 8 )
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 4, 8 )
+
+[node name="Sewers" type="Node2D" groups=["Parent"]]
+
+[node name="BackgroundColor" type="ColorRect" parent="."]
+margin_top = -64.0
+margin_right = 128.0
+margin_bottom = 8.0
+color = Color( 0.133333, 0.133333, 0.133333, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BackgroungSludgeTilemap" type="TileMap" parent="."]
+modulate = Color( 0.588235, 0.588235, 0.588235, 0.588235 )
+position = Vector2( 0, -64 )
+tile_set = ExtResource( 2 )
+cell_size = Vector2( 8, 8 )
+format = 1
+tile_data = PoolIntArray( 65546, 0, 5, 131074, 0, 5, 131075, 0, 2, 131079, 0, 1, 196615, 0, 2, 196616, 0, 4, 196619, 0, 0, 196620, 0, 1, 262147, 0, 5, 262148, 0, 1, 262152, 0, 0, 262157, 0, 0, 327684, 0, 3, 327685, 0, 2, 327687, 0, 2, 393227, 0, 5, 393228, 0, 4, 458759, 0, 1, 458760, 0, 1 )
+
+[node name="MainTilemap" type="TileMap" parent="."]
+tile_set = ExtResource( 3 )
+cell_size = Vector2( 8, 8 )
+format = 1
+tile_data = PoolIntArray( -524289, 0, 0, -589824, 0, 1, -589823, 0, 1, -589822, 0, 1, -589821, 0, 1, -589820, 0, 1, -589819, 0, 1, -589818, 0, 1, -589817, 0, 1, -589816, 0, 1, -589815, 0, 1, -589814, 0, 1, -589813, 0, 1, -589812, 0, 1, -589811, 0, 1, -589810, 0, 1, -589809, 0, 1, -589808, 0, 2, -458753, 0, 65536, -524288, 0, 65541, -524287, 0, 131073, -524286, 0, 131073, -524285, 0, 131073, -524284, 0, 131073, -524283, 0, 131073, -524282, 0, 131073, -524281, 0, 131073, -524280, 0, 131073, -524279, 0, 131073, -524278, 0, 131073, -524277, 0, 131073, -524276, 0, 131073, -524275, 0, 131073, -524274, 0, 131073, -524273, 0, 65542, -524272, 0, 65538, -393217, 0, 65536, -458752, 0, 65538, -458737, 0, 65536, -458736, 0, 65538, -327681, 0, 65536, -393216, 0, 65538, -393201, 0, 65536, -393200, 0, 65538, -262145, 0, 65536, -327680, 0, 65538, -327665, 0, 65536, -327664, 0, 65538, -196609, 0, 65536, -262144, 0, 65538, -262129, 0, 65536, -262128, 0, 65538, -131074, 0, 4, -131073, 0, 196614, -196608, 0, 131074, -196593, 0, 131072, -196592, 0, 196613, -196591, 0, 7, -65538, 0, 65539, -131055, 0, 65539, -2, 0, 65539, -65519, 0, 65539, 65534, 0, 196612, 65535, 0, 6, 0, 0, 1, 1, 0, 1, 2, 0, 1, 3, 0, 1, 4, 0, 1, 5, 0, 1, 6, 0, 1, 7, 0, 1, 8, 0, 1, 9, 0, 1, 10, 0, 1, 11, 0, 1, 12, 0, 1, 13, 0, 1, 14, 0, 1, 15, 0, 1, 16, 0, 5, 17, 0, 196615, 131071, 0, 131072, 65536, 0, 131073, 65537, 0, 131073, 65538, 0, 131073, 65539, 0, 131073, 65540, 0, 131073, 65541, 0, 131073, 65542, 0, 131073, 65543, 0, 131073, 65544, 0, 131073, 65545, 0, 131073, 65546, 0, 131073, 65547, 0, 131073, 65548, 0, 131073, 65549, 0, 131073, 65550, 0, 131073, 65551, 0, 131073, 65552, 0, 131074 )
+
+[node name="BossroomDoorTrigger" parent="MainTilemap" groups=["BossroomDoor"] instance=ExtResource( 5 )]
+position = Vector2( 32, -28 )
+tilemap_door_cells = [ Vector2( 0, -2 ), Vector2( 0, -1 ), Vector2( -1, -2 ), Vector2( -1, -1 ), Vector2( 15, -2 ), Vector2( 15, -1 ), Vector2( 16, -2 ), Vector2( 16, -1 ) ]
+boss = "ratking"
+
+[node name="CollisionShape2D" parent="MainTilemap/BossroomDoorTrigger" index="0"]
+shape = SubResource( 1 )
+
+[node name="SludgeTilemap" type="TileMap" parent="."]
+tile_set = ExtResource( 2 )
+cell_size = Vector2( 8, 8 )
+format = 1
+tile_data = PoolIntArray( -524286, 0, 2, -524285, 0, 0, -524282, 0, 1, -524280, 0, 5, -524279, 0, 2, -524277, 0, 1, -524276, 0, 3, -524275, 0, 2, -458752, 0, 3, -327665, 0, 1, -262144, 0, 2, -262129, 0, 0, -196608, 0, 0, 1, 0, 1, 2, 0, 4, 4, 0, 2, 5, 0, 2, 6, 0, 1, 8, 0, 0, 11, 0, 1, 15, 0, 2 )
+
+[node name="Enemies" type="Node2D" parent="."]
+
+[node name="RatKing" parent="Enemies" instance=ExtResource( 4 )]
+visible = false
+
+[node name="LevelSpawns" type="Node2D" parent="."]
+visible = false
+
+[node name="LevelSpawner" parent="LevelSpawns" instance=ExtResource( 7 )]
+position = Vector2( 6, -4 )
+enter_direction_key = "Left"
+spawn_velocity = Vector2( 32, 0 )
+force_direction = 1
+
+[node name="LevelSpawner2" parent="LevelSpawns" instance=ExtResource( 7 )]
+position = Vector2( 122, -4 )
+enter_direction_key = "Right"
+spawn_velocity = Vector2( 32, 0 )
+force_direction = -1
+
+[node name="LevelExits" type="Node2D" parent="."]
+
+[node name="LevelExit" parent="LevelExits" instance=ExtResource( 6 )]
+position = Vector2( -4, -8 )
+next_level = "res://World/Areas/Sewers/Right1Down1.tscn"
+enter_direction_key = "Right"
+
+[node name="CollisionShape2D" parent="LevelExits/LevelExit" index="0"]
+shape = SubResource( 2 )
+
+[node name="LevelExit2" parent="LevelExits" instance=ExtResource( 6 )]
+position = Vector2( 132, -8 )
+next_level = "res://World/Areas/Sewers/DashUnlockRoom.tscn"
+enter_direction_key = "Left"
+
+[node name="CollisionShape2D" parent="LevelExits/LevelExit2" index="0"]
+shape = SubResource( 3 )
+
+[node name="Player" parent="." instance=ExtResource( 1 )]
+position = Vector2( 6, -4 )
+
+[node name="Camera2D" parent="Player" instance=ExtResource( 8 )]
+target = NodePath("..")
+
+[node name="TopLeft" parent="Player/Camera2D/Limits" index="0"]
+position = Vector2( 0, -64 )
+
+[node name="BottomRight" parent="Player/Camera2D/Limits" index="1"]
+position = Vector2( 128, 8 )
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+color = Color( 0.376471, 0.376471, 0.376471, 1 )
+
+[editable path="MainTilemap/BossroomDoorTrigger"]
+[editable path="LevelExits/LevelExit"]
+[editable path="LevelExits/LevelExit2"]
+[editable path="Player/Camera2D"]

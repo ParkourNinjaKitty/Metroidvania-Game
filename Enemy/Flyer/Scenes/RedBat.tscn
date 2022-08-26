@@ -1,0 +1,146 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://Enemy/EnemyHitbox.gd" type="Script" id=1]
+[ext_resource path="res://Enemy/Flyer/Assets/RedBat.png" type="Texture" id=2]
+[ext_resource path="res://Enemy/Flyer/Scripts/FlyerMovement.gd" type="Script" id=3]
+
+[sub_resource type="CapsuleShape2D" id=9]
+radius = 2.5
+height = 3.0
+
+[sub_resource type="Animation" id=2]
+resource_name = "Fly"
+length = 0.2
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 0, 2 ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "Idle"
+length = 0.4
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3 ]
+}
+
+[sub_resource type="Animation" id=4]
+resource_name = "Spawn"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 0 ]
+}
+
+[sub_resource type="Animation" id=5]
+resource_name = "Hurt"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 4, 0 ]
+}
+
+[sub_resource type="CircleShape2D" id=6]
+radius = 64.0
+
+[sub_resource type="RectangleShape2D" id=7]
+extents = Vector2( 3, 1.5 )
+
+[sub_resource type="RectangleShape2D" id=8]
+extents = Vector2( 5, 4 )
+
+[node name="RedBat" type="KinematicBody2D"]
+collision_layer = 4
+collision_mask = 5
+script = ExtResource( 3 )
+SPEED = 48
+MAX_HEALTH = 2
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = ExtResource( 2 )
+hframes = 5
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 0, 1.5 )
+rotation = 1.5708
+shape = SubResource( 9 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "Spawn"
+method_call_mode = 1
+anims/Fly = SubResource( 2 )
+anims/Idle = SubResource( 3 )
+anims/Spawn = SubResource( 4 )
+
+[node name="HurtAnimationPlayer" type="AnimationPlayer" parent="."]
+anims/Hurt = SubResource( 5 )
+
+[node name="PlayerDetectionArea" type="Area2D" parent="."]
+visible = false
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerDetectionArea"]
+shape = SubResource( 6 )
+
+[node name="Hitbox" type="Area2D" parent="."]
+visible = false
+collision_layer = 16
+collision_mask = 32
+script = ExtResource( 1 )
+damage = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+position = Vector2( 0, 1.5 )
+shape = SubResource( 7 )
+
+[node name="Hurtbox" type="Area2D" parent="."]
+visible = false
+collision_layer = 64
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
+position = Vector2( 0, 1 )
+shape = SubResource( 8 )
+
+[node name="PlayerTargetingRaycast" type="RayCast2D" parent="."]
+position = Vector2( 1, -1 )
+enabled = true
+cast_to = Vector2( 1e+07, 0 )
+
+[connection signal="body_entered" from="PlayerDetectionArea" to="." method="_on_PlayerDetectionArea_body_entered"]
+[connection signal="area_entered" from="Hurtbox" to="." method="_on_Hurtbox_area_entered"]

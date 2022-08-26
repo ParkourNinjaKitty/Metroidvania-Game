@@ -1,0 +1,12 @@
+[remap]
+
+importer="inkgd.ink.json"
+type="Resource"
+valid=false
+
+[deps]
+
+source_file="res://addons/GGS/settings_data.json"
+[params]
+
+compress=true

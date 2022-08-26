@@ -1,0 +1,254 @@
+{
+	"0": {
+		"name": "kb_right",
+		"default": {
+			"value": 16777233,
+			"action_name": "right"
+		},
+		"current": {
+			"value": 16777233,
+			"action_name": "right"
+		},
+		"logic": "res://addons/GGS/logic/keybind_kb.gd"
+	},
+	"1": {
+		"name": "kb_left",
+		"default": {
+			"value": 16777231,
+			"action_name": "left"
+		},
+		"current": {
+			"value": 16777231,
+			"action_name": "left"
+		},
+		"logic": "res://addons/GGS/logic/keybind_kb.gd"
+	},
+	"2": {
+		"name": "kb_up",
+		"default": {
+			"value": 16777232,
+			"action_name": "up"
+		},
+		"current": {
+			"value": 16777232,
+			"action_name": "up"
+		},
+		"logic": "res://addons/GGS/logic/keybind_kb.gd"
+	},
+	"3": {
+		"name": "kb_down",
+		"default": {
+			"value": 16777234,
+			"action_name": "down"
+		},
+		"current": {
+			"value": 16777234,
+			"action_name": "down"
+		},
+		"logic": "res://addons/GGS/logic/keybind_kb.gd"
+	},
+	"4": {
+		"name": "kb_jump",
+		"default": {
+			"value": 90,
+			"action_name": "jump"
+		},
+		"current": {
+			"value": 90,
+			"action_name": "jump"
+		},
+		"logic": "res://addons/GGS/logic/keybind_kb.gd"
+	},
+	"5": {
+		"name": "kb_attack",
+		"default": {
+			"value": 88,
+			"action_name": "attack"
+		},
+		"current": {
+			"value": 88,
+			"action_name": "attack"
+		},
+		"logic": "res://addons/GGS/logic/keybind_kb.gd"
+	},
+	"6": {
+		"name": "kb_dash",
+		"default": {
+			"value": 67,
+			"action_name": "dash"
+		},
+		"current": {
+			"value": 67,
+			"action_name": "dash"
+		},
+		"logic": "res://addons/GGS/logic/keybind_kb.gd"
+	},
+	"7": {
+		"name": "gp_right",
+		"default": {
+			"value": 15,
+			"action_name": "right"
+		},
+		"current": {
+			"value": 15,
+			"action_name": "right"
+		},
+		"logic": "res://addons/GGS/logic/blank.gd"
+	},
+	"8": {
+		"name": "gp_left",
+		"default": {
+			"value": 14,
+			"action_name": "left"
+		},
+		"current": {
+			"value": 14,
+			"action_name": "left"
+		},
+		"logic": "res://addons/GGS/logic/blank.gd"
+	},
+	"9": {
+		"name": "gp_up",
+		"default": {
+			"value": 12,
+			"action_name": "up"
+		},
+		"current": {
+			"value": 12,
+			"action_name": "up"
+		},
+		"logic": "res://addons/GGS/logic/blank.gd"
+	},
+	"10": {
+		"name": "gp_down",
+		"default": {
+			"value": 13,
+			"action_name": "down"
+		},
+		"current": {
+			"value": 13,
+			"action_name": "down"
+		},
+		"logic": "res://addons/GGS/logic/blank.gd"
+	},
+	"11": {
+		"name": "gp_jump",
+		"default": {
+			"value": 0,
+			"action_name": "jump"
+		},
+		"current": {
+			"value": 0,
+			"action_name": "jump"
+		},
+		"logic": "res://addons/GGS/logic/blank.gd"
+	},
+	"12": {
+		"name": "gp_attack",
+		"default": {
+			"value": 2,
+			"action_name": "attack"
+		},
+		"current": {
+			"value": 2,
+			"action_name": "attack"
+		},
+		"logic": "res://addons/GGS/logic/blank.gd"
+	},
+	"13": {
+		"name": "gp_dash",
+		"default": {
+			"value": 5,
+			"action_name": "dash"
+		},
+		"current": {
+			"value": 5,
+			"action_name": "dash"
+		},
+		"logic": "res://addons/GGS/logic/blank.gd"
+	},
+	"14": {
+		"name": "window_fullscreen",
+		"default": {
+			"value": false,
+			"window_script_path": "res://addons/GGS/logic/window_resolution.gd",
+			"window_setting_index": "15"
+		},
+		"current": {
+			"value": true,
+			"window_script_path": "res://addons/GGS/logic/window_resolution.gd",
+			"window_setting_index": "15"
+		},
+		"logic": "res://addons/GGS/logic/fullscreen.gd"
+	},
+	"15": {
+		"name": "window_resolution",
+		"default": {
+			"value": 2
+		},
+		"current": {
+			"value": 2
+		},
+		"logic": "res://addons/GGS/logic/window_resolution.gd"
+	},
+	"16": {
+		"name": "music_volume",
+		"default": {
+			"value": 0.5,
+			"bus_name": "Music"
+		},
+		"current": {
+			"value": 0.5,
+			"bus_name": "Music"
+		},
+		"logic": "res://addons/GGS/logic/audio_slider.gd"
+	},
+	"17": {
+		"name": "music_mute",
+		"default": {
+			"value": false,
+			"bus_name": "Music"
+		},
+		"current": {
+			"value": false,
+			"bus_name": "Music"
+		},
+		"logic": "res://addons/GGS/logic/audio_mute.gd"
+	},
+	"18": {
+		"name": "sfx_volume",
+		"default": {
+			"value": 0.5,
+			"bus_name": "SFX"
+		},
+		"current": {
+			"value": 0.5,
+			"bus_name": "SFX"
+		},
+		"logic": "res://addons/GGS/logic/audio_slider.gd"
+	},
+	"19": {
+		"name": "sfx_mute",
+		"default": {
+			"value": false,
+			"bus_name": "SFX"
+		},
+		"current": {
+			"value": false,
+			"bus_name": "SFX"
+		},
+		"logic": "res://addons/GGS/logic/audio_mute.gd"
+	},
+	"20": {
+		"name": "master_volume",
+		"default": {
+			"value": 0.5,
+			"bus_name": "Master"
+		},
+		"current": {
+			"value": 0.5,
+			"bus_name": "Master"
+		},
+		"logic": "res://addons/GGS/logic/audio_slider.gd"
+	}
+}

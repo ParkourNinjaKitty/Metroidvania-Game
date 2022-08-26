@@ -1,0 +1,56 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Menus/Scripts/OptionsMenu.gd" type="Script" id=3]
+
+[node name="OptionsMenu" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VideoSettings" type="Button" parent="."]
+margin_left = 531.0
+margin_top = 152.0
+margin_right = 579.0
+margin_bottom = 172.0
+text = "Video"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AudioSettings" type="Button" parent="."]
+margin_left = 531.0
+margin_top = 239.0
+margin_right = 580.0
+margin_bottom = 259.0
+text = "Audio"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="KeyboardControls" type="Button" parent="."]
+margin_left = 521.0
+margin_top = 334.0
+margin_right = 592.0
+margin_bottom = 354.0
+text = "Keyboard"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BackButton" type="Button" parent="."]
+margin_left = 542.0
+margin_top = 445.0
+margin_right = 554.0
+margin_bottom = 465.0
+text = "Back"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="pressed" from="VideoSettings" to="." method="_on_VideoSettings_pressed"]
+[connection signal="pressed" from="AudioSettings" to="." method="_on_AudioSettings_pressed"]
+[connection signal="pressed" from="KeyboardControls" to="." method="_on_KeyboardControls_pressed"]
+[connection signal="pressed" from="BackButton" to="." method="_on_BackButton_pressed"]

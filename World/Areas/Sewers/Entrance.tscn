@@ -1,0 +1,161 @@
+[gd_scene load_steps=15 format=2]
+
+[ext_resource path="res://World/Assets/Sewers/Sewer_tileset.tres" type="TileSet" id=1]
+[ext_resource path="res://Player/Scenes/Player.tscn" type="PackedScene" id=2]
+[ext_resource path="res://World/LevelExit.tscn" type="PackedScene" id=3]
+[ext_resource path="res://World/LevelSpawn.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Enemy/Crawler/Scenes/Rat.tscn" type="PackedScene" id=5]
+[ext_resource path="res://World/Assets/Sewers/Sewer_sludge.tres" type="TileSet" id=6]
+[ext_resource path="res://Player/Scenes/Camera2D.tscn" type="PackedScene" id=7]
+[ext_resource path="res://World/Assets/Sewers/Sewage.tscn" type="PackedScene" id=8]
+[ext_resource path="res://World/Assets/Sewers/Sewage_pipe_tileset.tres" type="TileSet" id=9]
+
+[sub_resource type="RectangleShape2D" id=5]
+extents = Vector2( 12, 4 )
+
+[sub_resource type="RectangleShape2D" id=6]
+extents = Vector2( 16, 6 )
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 8, 4 )
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 4, 8 )
+
+[sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 4, 8 )
+
+[node name="Sewers" type="Node2D" groups=["Parent"]]
+
+[node name="BackgroundColor" type="ColorRect" parent="."]
+margin_left = -160.0
+margin_top = -40.0
+margin_right = 240.0
+margin_bottom = 32.0
+color = Color( 0.133333, 0.133333, 0.133333, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BackgroungSludgeTilemap" type="TileMap" parent="."]
+modulate = Color( 0.588235, 0.588235, 0.588235, 0.588235 )
+position = Vector2( 0, -64 )
+tile_set = ExtResource( 6 )
+cell_size = Vector2( 8, 8 )
+format = 1
+tile_data = PoolIntArray( 262126, 0, 1, 327662, 0, 4, 327663, 0, 1, 327668, 0, 4, 327669, 0, 2, 327678, 0, 4, 262147, 0, 3, 262150, 0, 1, 393204, 0, 2, 393211, 0, 2, 393212, 0, 2, 393214, 0, 3, 327681, 0, 2, 327682, 0, 0, 327692, 0, 2, 458747, 0, 2, 393223, 0, 3, 393235, 0, 0, 393236, 0, 3, 393237, 0, 5, 393243, 0, 5, 524271, 0, 5, 524272, 0, 4, 524273, 0, 2, 524280, 0, 3, 524281, 0, 3, 458759, 0, 1, 458760, 0, 0, 458768, 0, 4, 458777, 0, 4, 458779, 0, 5, 589809, 0, 2, 589815, 0, 5, 589816, 0, 3, 524296, 0, 4, 524300, 0, 1, 524301, 0, 0, 524302, 0, 4, 524303, 0, 3, 524314, 0, 4, 524315, 0, 3, 655350, 0, 4, 589844, 0, 5, 589845, 0, 4 )
+
+[node name="SewagePipeTilemap" type="TileMap" parent="."]
+tile_set = ExtResource( 9 )
+cell_size = Vector2( 8, 8 )
+format = 1
+tile_data = PoolIntArray( -196597, 0, 1, -65550, 0, 0, -131061, 0, 65536, -14, 0, 65536, -65525, 0, 65536, 65522, 0, 65536, 65524, 0, 1, 11, 0, 65536, 131058, 0, 131072, 131060, 0, 131072, 65547, 0, 65536, 65549, 0, 0, 131083, 0, 131072, 131085, 0, 131072 )
+
+[node name="MainTilemap" type="TileMap" parent="."]
+tile_set = ExtResource( 1 )
+cell_size = Vector2( 8, 8 )
+format = 1
+tile_data = PoolIntArray( -393217, 0, 4, -458752, 0, 196609, -458751, 0, 196609, -458750, 0, 7, -327702, 0, 4, -327701, 0, 196609, -327700, 0, 196609, -327699, 0, 196609, -327698, 0, 196609, -327697, 0, 196609, -327696, 0, 196609, -327695, 0, 6, -327694, 0, 1, -327693, 0, 1, -327692, 0, 1, -327691, 0, 1, -327690, 0, 1, -327689, 0, 1, -327688, 0, 1, -327687, 0, 1, -327686, 0, 1, -327685, 0, 1, -327684, 0, 1, -327683, 0, 1, -327682, 0, 1, -327681, 0, 131079, -393214, 0, 131076, -393213, 0, 1, -393212, 0, 1, -393211, 0, 1, -393210, 0, 1, -393209, 0, 1, -393208, 0, 1, -393207, 0, 1, -393206, 0, 1, -393205, 0, 1, -393204, 0, 1, -393203, 0, 1, -393202, 0, 1, -393201, 0, 1, -393200, 0, 1, -393199, 0, 1, -393198, 0, 1, -393197, 0, 1, -393196, 0, 1, -393195, 0, 1, -393194, 0, 1, -393193, 0, 1, -393192, 0, 1, -393191, 0, 1, -393190, 0, 1, -393189, 0, 1, -393188, 0, 1, -393187, 0, 1, -393186, 0, 2, -262166, 0, 65539, -262159, 0, 65536, -262158, 0, 65541, -262157, 0, 131073, -262156, 0, 131073, -262155, 0, 131073, -262154, 0, 131073, -262153, 0, 131073, -262152, 0, 131073, -262151, 0, 131073, -262150, 0, 131073, -262149, 0, 131073, -262148, 0, 131073, -262147, 0, 131073, -262146, 0, 131073, -262145, 0, 131074, -327678, 0, 131072, -327677, 0, 131073, -327676, 0, 131073, -327675, 0, 131073, -327674, 0, 131073, -327673, 0, 131073, -327672, 0, 131073, -327671, 0, 131073, -327670, 0, 65542, -327669, 0, 65537, -327668, 0, 65537, -327667, 0, 65537, -327666, 0, 65537, -327665, 0, 65537, -327664, 0, 65537, -327663, 0, 65537, -327662, 0, 65537, -327661, 0, 65537, -327660, 0, 65537, -327659, 0, 65537, -327658, 0, 65537, -327657, 0, 65537, -327656, 0, 65537, -327655, 0, 65537, -327654, 0, 65537, -327653, 0, 65537, -327652, 0, 65537, -327651, 0, 65537, -327650, 0, 65538, -196630, 0, 65539, -196623, 0, 65536, -196622, 0, 65538, -262134, 0, 131072, -262133, 0, 131073, -262132, 0, 131073, -262131, 0, 65542, -262130, 0, 65537, -262129, 0, 65537, -262128, 0, 65537, -262127, 0, 65541, -262126, 0, 131073, -262125, 0, 131073, -262124, 0, 131073, -262123, 0, 131073, -262122, 0, 131073, -262121, 0, 131073, -262120, 0, 131073, -262119, 0, 131073, -262118, 0, 131073, -262117, 0, 131073, -262116, 0, 65542, -262115, 0, 65537, -262114, 0, 65538, -131094, 0, 196612, -131093, 0, 6, -131092, 0, 1, -131091, 0, 1, -131090, 0, 2, -131087, 0, 131072, -131086, 0, 131074, -196595, 0, 131072, -196594, 0, 131073, -196593, 0, 131073, -196592, 0, 131073, -196591, 0, 131074, -196580, 0, 131072, -196579, 0, 131073, -196578, 0, 196613, -196577, 0, 7, -65557, 0, 65536, -65556, 0, 65537, -65555, 0, 65537, -65554, 0, 65538, -131072, 0, 0, -131071, 0, 2, -131041, 0, 65539, -21, 0, 65536, -20, 0, 65537, -19, 0, 65537, -18, 0, 65538, -13, 0, 196608, -12, 0, 196609, -11, 0, 196610, -4, 0, 0, -3, 0, 1, -2, 0, 1, -1, 0, 1, -65536, 0, 131078, -65535, 0, 131077, -65534, 0, 1, -65533, 0, 1, -65532, 0, 1, -65531, 0, 2, -65515, 0, 196608, -65514, 0, 196609, -65513, 0, 196610, -65505, 0, 65539, 65515, 0, 65536, 65516, 0, 65537, 65517, 0, 65537, 65518, 0, 65538, 65532, 0, 65536, 65533, 0, 65537, 65534, 0, 65537, 65535, 0, 65537, 0, 0, 65537, 1, 0, 65537, 2, 0, 65537, 3, 0, 65537, 4, 0, 65537, 5, 0, 65538, 27, 0, 0, 28, 0, 1, 29, 0, 1, 30, 0, 5, 31, 0, 196615, 131051, 0, 65536, 131052, 0, 65537, 131053, 0, 65537, 131054, 0, 65538, 131064, 0, 0, 131065, 0, 1, 131066, 0, 1, 131067, 0, 1, 131068, 0, 131078, 131069, 0, 65537, 131070, 0, 65537, 131071, 0, 65537, 65536, 0, 65537, 65537, 0, 65537, 65538, 0, 65537, 65539, 0, 65537, 65540, 0, 65537, 65541, 0, 131077, 65542, 0, 2, 65554, 0, 0, 65555, 0, 2, 65562, 0, 0, 65563, 0, 131078, 65564, 0, 65537, 65565, 0, 65537, 65566, 1073741824, 65538, 196587, 0, 65536, 196588, 0, 65537, 196589, 0, 65537, 196590, 0, 131077, 196591, 0, 1, 196592, 0, 1, 196593, 0, 2, 196598, 0, 0, 196599, 0, 1, 196600, 0, 131078, 196601, 0, 65537, 196602, 0, 65537, 196603, 0, 65537, 196604, 0, 65537, 196605, 0, 65537, 196606, 0, 65537, 196607, 0, 65537, 131072, 0, 65537, 131073, 0, 65537, 131074, 0, 65537, 131075, 0, 65537, 131076, 0, 65537, 131077, 0, 65537, 131078, 0, 131077, 131079, 0, 1, 131080, 0, 1, 131081, 0, 1, 131082, 0, 2, 131086, 0, 0, 131087, 0, 1, 131088, 0, 1, 131089, 0, 1, 131090, 0, 131078, 131091, 0, 131077, 131092, 0, 1, 131093, 0, 1, 131094, 0, 1, 131095, 0, 1, 131096, 0, 1, 131097, 0, 1, 131098, 0, 131078, 131099, 0, 65537, 131100, 0, 65537, 131101, 0, 65537, 131102, 0, 65538, 262123, 0, 65536, 262124, 0, 65537, 262125, 0, 65537, 262126, 0, 65537, 262127, 0, 65537, 262128, 0, 65537, 262129, 0, 65538, 262134, 0, 65536, 262135, 0, 65537, 262136, 0, 65537, 262137, 0, 65537, 262138, 0, 65537, 262139, 0, 65537, 262140, 0, 65537, 262141, 0, 65537, 262142, 0, 65537, 262143, 0, 65537, 196608, 0, 65537, 196609, 0, 65537, 196610, 0, 65537, 196611, 0, 65537, 196612, 0, 65537, 196613, 0, 65537, 196614, 0, 65537, 196615, 0, 65537, 196616, 0, 65537, 196617, 0, 65537, 196618, 0, 65538, 196622, 0, 65536, 196623, 0, 65537, 196624, 0, 65537, 196625, 0, 65537, 196626, 0, 65537, 196627, 0, 65537, 196628, 0, 65537, 196629, 0, 65537, 196630, 0, 65537, 196631, 0, 65537, 196632, 0, 65537, 196633, 0, 65537, 196634, 0, 65537, 196635, 0, 65537, 196636, 0, 65537, 196637, 0, 65537, 196638, 0, 65538, 327659, 0, 131072, 327660, 0, 131073, 327661, 0, 131073, 327662, 0, 131073, 327663, 0, 131073, 327664, 0, 131073, 327665, 0, 196613, 327666, 0, 196609, 327667, 0, 196609, 327668, 0, 196609, 327669, 0, 196609, 327670, 0, 196614, 327671, 0, 131073, 327672, 0, 131073, 327673, 0, 131073, 327674, 0, 131073, 327675, 0, 131073, 327676, 0, 131073, 327677, 0, 131073, 327678, 0, 131073, 327679, 0, 131073, 262144, 0, 131073, 262145, 0, 131073, 262146, 0, 131073, 262147, 0, 131073, 262148, 0, 131073, 262149, 0, 131073, 262150, 0, 131073, 262151, 0, 131073, 262152, 0, 131073, 262153, 0, 131073, 262154, 0, 196613, 262155, 0, 196609, 262156, 0, 196609, 262157, 0, 196609, 262158, 0, 196614, 262159, 0, 131073, 262160, 0, 131073, 262161, 0, 131073, 262162, 0, 131073, 262163, 0, 131073, 262164, 0, 131073, 262165, 0, 131073, 262166, 0, 131073, 262167, 0, 131073, 262168, 0, 131073, 262169, 0, 131073, 262170, 0, 131073, 262171, 0, 131073, 262172, 0, 131073, 262173, 0, 131073, 262174, 0, 131074 )
+
+[node name="SludgeTilemap" type="TileMap" parent="."]
+tile_set = ExtResource( 6 )
+cell_size = Vector2( 8, 8 )
+format = 1
+tile_data = PoolIntArray( -327701, 0, 4, -327700, 0, 5, -327697, 0, 5, -327696, 0, 1, -262166, 0, 5, -262157, 0, 3, -262156, 0, 2, -262154, 0, 4, -262150, 0, 1, -262149, 0, 2, -262145, 0, 0, -327678, 0, 5, -327677, 0, 0, -327672, 0, 1, -262134, 0, 5, -262133, 0, 2, -262125, 0, 4, -262124, 0, 5, -262121, 0, 4, -262119, 0, 1, -262118, 0, 1, -131093, 0, 0, -131091, 0, 4, -131087, 0, 3, -196593, 0, 2, -196592, 0, 1, -196580, 0, 2, -196579, 0, 5, -131072, 0, 2, -13, 0, 4, -12, 0, 5, -2, 0, 5, -65534, 0, 5, -65531, 0, 2, -65513, 0, 1, 65518, 0, 4, 65532, 0, 3, 28, 0, 4, 29, 0, 1, 65554, 0, 1, 65562, 0, 3, 196591, 0, 4, 196599, 0, 5, 131079, 0, 2, 131080, 0, 2, 131089, 0, 0, 131096, 0, 5, 131097, 0, 1 )
+
+[node name="Sewage" type="Node2D" parent="."]
+
+[node name="Sewage" parent="Sewage" instance=ExtResource( 8 )]
+position = Vector2( 88, 24 )
+
+[node name="CollisionShape2D" parent="Sewage/Sewage" index="0"]
+position = Vector2( 12, 4 )
+shape = SubResource( 5 )
+
+[node name="TileMap" parent="Sewage/Sewage" index="1"]
+tile_data = PoolIntArray( 0, 0, 0, 1, 0, 0, 2, 0, 1 )
+
+[node name="Sewage2" parent="Sewage" instance=ExtResource( 8 )]
+position = Vector2( -112, 16 )
+
+[node name="CollisionShape2D" parent="Sewage/Sewage2" index="0"]
+position = Vector2( 16, 10 )
+shape = SubResource( 6 )
+
+[node name="TileMap" parent="Sewage/Sewage2" index="1"]
+tile_data = PoolIntArray( 0, 0, 1, 1, 0, 2, 2, 0, 1, 3, 0, 0, 65536, 1, 0, 65537, 1, 1, 65538, 1, 2, 65539, 1, 0 )
+
+[node name="Enemies" type="Node2D" parent="."]
+
+[node name="Rat" parent="Enemies" instance=ExtResource( 5 )]
+position = Vector2( -92, -9 )
+
+[node name="Rat2" parent="Enemies" instance=ExtResource( 5 )]
+position = Vector2( 185, 15 )
+
+[node name="LevelSpawns" type="Node2D" parent="."]
+
+[node name="LevelSpawner" parent="LevelSpawns" instance=ExtResource( 4 )]
+position = Vector2( 8, -32 )
+enter_direction_key = "Top"
+spawn_velocity = Vector2( 0, 8 )
+
+[node name="LevelSpawner2" parent="LevelSpawns" instance=ExtResource( 4 )]
+position = Vector2( -154, -28 )
+enter_direction_key = "Left"
+spawn_velocity = Vector2( 32, 0 )
+force_direction = 1
+
+[node name="LevelSpawner3" parent="LevelSpawns" instance=ExtResource( 4 )]
+position = Vector2( 234, -4 )
+enter_direction_key = "Right"
+spawn_velocity = Vector2( 32, 0 )
+force_direction = -1
+
+[node name="LevelExits" type="Node2D" parent="."]
+
+[node name="LevelExit" parent="LevelExits" instance=ExtResource( 3 )]
+position = Vector2( 8, -44 )
+next_level = "res://World/Areas/Mudstreet/Start.tscn"
+enter_direction_key = "SewerExit"
+
+[node name="CollisionShape2D" parent="LevelExits/LevelExit" index="0"]
+shape = SubResource( 1 )
+
+[node name="LevelExit2" parent="LevelExits" instance=ExtResource( 3 )]
+position = Vector2( -164, -32 )
+next_level = "res://World/Areas/Sewers/Left1.tscn"
+enter_direction_key = "Right"
+
+[node name="CollisionShape2D" parent="LevelExits/LevelExit2" index="0"]
+shape = SubResource( 3 )
+
+[node name="LevelExit3" parent="LevelExits" instance=ExtResource( 3 )]
+position = Vector2( 244, -8 )
+next_level = "res://World/Areas/Sewers/Right1.tscn"
+enter_direction_key = "Left"
+
+[node name="CollisionShape2D" parent="LevelExits/LevelExit3" index="0"]
+shape = SubResource( 4 )
+
+[node name="Player" parent="." instance=ExtResource( 2 )]
+position = Vector2( 8, -32 )
+
+[node name="Camera2D" parent="Player" instance=ExtResource( 7 )]
+target = NodePath("..")
+
+[node name="TopLeft" parent="Player/Camera2D/Limits" index="0"]
+position = Vector2( -160, -40 )
+
+[node name="BottomRight" parent="Player/Camera2D/Limits" index="1"]
+position = Vector2( 240, 32 )
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+color = Color( 0.501961, 0.501961, 0.501961, 1 )
+
+[editable path="Sewage/Sewage"]
+[editable path="Sewage/Sewage2"]
+[editable path="LevelExits/LevelExit"]
+[editable path="LevelExits/LevelExit2"]
+[editable path="LevelExits/LevelExit3"]
+[editable path="Player/Camera2D"]

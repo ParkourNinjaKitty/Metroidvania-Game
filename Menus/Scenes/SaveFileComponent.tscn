@@ -1,0 +1,106 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Menus/Scripts/SaveFileComponent.gd" type="Script" id=1]
+[ext_resource path="res://Menus/Assets/fonts/Base_font_48.tres" type="DynamicFont" id=2]
+[ext_resource path="res://Menus/Assets/fonts/Base_font_32.tres" type="DynamicFont" id=3]
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 0.129412, 0.129412, 0.129412, 1 )
+corner_radius_top_left = 32
+corner_radius_top_right = 32
+corner_radius_bottom_right = 32
+corner_radius_bottom_left = 32
+
+[node name="SaveFile1" type="Panel"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = -768.0
+margin_bottom = -192.0
+custom_styles/panel = SubResource( 1 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SaveNumber" type="Label" parent="."]
+margin_right = 256.0
+margin_bottom = 64.0
+custom_fonts/font = ExtResource( 2 )
+text = "Save"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="NewFileText" type="Label" parent="."]
+margin_top = 116.0
+margin_right = 256.0
+margin_bottom = 159.0
+custom_fonts/font = ExtResource( 3 )
+text = "New File"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="FileInfo" type="Control" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PercentCompleted" type="Label" parent="FileInfo"]
+margin_top = 136.0
+margin_right = 256.0
+margin_bottom = 179.0
+custom_fonts/font = ExtResource( 3 )
+text = "0%"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CurrentArea" type="Label" parent="FileInfo"]
+margin_top = 96.0
+margin_right = 256.0
+margin_bottom = 139.0
+custom_fonts/font = ExtResource( 3 )
+text = "Null"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PlayButton" type="Button" parent="."]
+margin_left = 64.0
+margin_top = 216.0
+margin_right = 192.0
+margin_bottom = 286.0
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_color_hover = Color( 0.662745, 0.662745, 0.662745, 1 )
+custom_fonts/font = ExtResource( 2 )
+text = "Play"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="DeleteButton" type="Button" parent="."]
+margin_left = 64.0
+margin_top = 319.0
+margin_right = 192.0
+margin_bottom = 368.0
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_color_hover = Color( 0.662745, 0.662745, 0.662745, 1 )
+custom_fonts/font = ExtResource( 3 )
+text = "Delete"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="pressed" from="PlayButton" to="." method="_on_PlayButton_pressed"]
+[connection signal="pressed" from="DeleteButton" to="." method="_on_DeleteButton_pressed"]

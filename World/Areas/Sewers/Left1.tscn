@@ -1,0 +1,19 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Player/Scenes/Player.tscn" type="PackedScene" id=3]
+
+[node name="Sewers" type="Node2D" groups=["Parent"]]
+
+[node name="Player" parent="." instance=ExtResource( 3 )]
+position = Vector2( 8, -20 )
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+current = true
+zoom = Vector2( 0.125, 0.125 )
+limit_left = -160
+limit_top = -40
+limit_right = 240
+limit_bottom = 24
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+color = Color( 0.501961, 0.501961, 0.501961, 1 )

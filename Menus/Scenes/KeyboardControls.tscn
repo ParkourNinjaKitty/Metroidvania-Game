@@ -1,0 +1,76 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Menus/Scripts/KeyboardControls.gd" type="Script" id=1]
+[ext_resource path="res://addons/GGS/src/components/keybind/ggsKeybindKb.tscn" type="PackedScene" id=2]
+
+[node name="KeyboardControls" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="right" parent="." instance=ExtResource( 2 )]
+margin_left = 102.0
+margin_top = 43.0
+margin_right = 122.0
+margin_bottom = 63.0
+text = "right"
+
+[node name="left" parent="." instance=ExtResource( 2 )]
+margin_left = 213.0
+margin_top = 48.0
+margin_right = 233.0
+margin_bottom = 68.0
+text = "left"
+setting_index = 1
+
+[node name="up" parent="." instance=ExtResource( 2 )]
+margin_left = 306.0
+margin_top = 58.0
+margin_right = 326.0
+margin_bottom = 78.0
+text = "up"
+setting_index = 2
+
+[node name="down" parent="." instance=ExtResource( 2 )]
+margin_left = 392.0
+margin_top = 59.0
+margin_right = 412.0
+margin_bottom = 79.0
+text = "down"
+setting_index = 3
+
+[node name="jump" parent="." instance=ExtResource( 2 )]
+margin_left = 487.0
+margin_top = 55.0
+margin_right = 507.0
+margin_bottom = 75.0
+text = "jump"
+setting_index = 4
+
+[node name="attack" parent="." instance=ExtResource( 2 )]
+margin_left = 580.0
+margin_top = 61.0
+margin_right = 600.0
+margin_bottom = 81.0
+text = "attack"
+setting_index = 5
+
+[node name="dash" parent="." instance=ExtResource( 2 )]
+margin_left = 680.0
+margin_top = 67.0
+margin_right = 700.0
+margin_bottom = 87.0
+text = "dash"
+setting_index = 6
+
+[node name="BackButton" type="Button" parent="."]
+margin_left = 430.0
+margin_top = 288.0
+margin_right = 472.0
+margin_bottom = 308.0
+text = "Back"
+
+[connection signal="pressed" from="BackButton" to="." method="_on_BackButton_pressed"]

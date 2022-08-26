@@ -1,0 +1,110 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://World/Assets/Sewers/Sewer_tileset.tres" type="TileSet" id=1]
+[ext_resource path="res://World/Assets/Sewers/Sewer_sludge.tres" type="TileSet" id=2]
+[ext_resource path="res://Player/Scenes/Player.tscn" type="PackedScene" id=3]
+[ext_resource path="res://World/LevelSpawn.tscn" type="PackedScene" id=4]
+[ext_resource path="res://World/LevelExit.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Enemy/Crawler/Scenes/Rat.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Enemy/Crawler/Scenes/Spider.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Player/Scenes/Camera2D.tscn" type="PackedScene" id=8]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 4, 4 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 4, 8 )
+
+[node name="Sewers" type="Node2D" groups=["Parent"]]
+
+[node name="BackgroundColor" type="ColorRect" parent="."]
+margin_left = -112.0
+margin_top = -32.0
+margin_right = 48.0
+margin_bottom = 64.0
+color = Color( 0.133333, 0.133333, 0.133333, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BackgroungSludgeTilemap" type="TileMap" parent="."]
+modulate = Color( 0.588235, 0.588235, 0.588235, 0.588235 )
+position = Vector2( 0, -64 )
+tile_set = ExtResource( 2 )
+cell_size = Vector2( 8, 8 )
+format = 1
+tile_data = PoolIntArray( 393204, 0, 4, 393205, 0, 5, 393206, 0, 2, 327682, 0, 3, 327683, 0, 0, 458743, 0, 2, 393216, 0, 0, 393219, 0, 2, 393220, 0, 2, 524278, 0, 4, 458753, 0, 2, 458757, 0, 3, 589814, 0, 3, 589821, 0, 1, 589822, 0, 4, 524288, 0, 3, 524289, 0, 3, 524292, 0, 2, 524293, 0, 0, 655350, 0, 5, 655357, 0, 1, 589824, 0, 3, 720884, 0, 0, 720886, 0, 5, 720887, 0, 2, 720888, 0, 4, 720891, 0, 0, 720892, 0, 1, 720894, 0, 3, 786421, 0, 1, 786422, 0, 2, 786425, 0, 0, 786427, 0, 2, 786431, 0, 4, 851955, 0, 5, 851956, 0, 3, 851963, 0, 1, 917491, 0, 1, 917492, 0, 5, 917496, 0, 0, 917497, 0, 0, 983028, 0, 4, 983029, 0, 0 )
+
+[node name="MainTilemap" type="TileMap" parent="."]
+tile_set = ExtResource( 1 )
+cell_size = Vector2( 8, 8 )
+format = 1
+tile_data = PoolIntArray( -262159, 0, 0, -262158, 0, 1, -262157, 0, 1, -262156, 0, 1, -262155, 0, 1, -262154, 0, 1, -262153, 0, 1, -262152, 0, 1, -262151, 0, 1, -262150, 0, 1, -262149, 0, 1, -262148, 0, 1, -262147, 0, 1, -262146, 0, 1, -262145, 0, 1, -327680, 0, 1, -327679, 0, 1, -327678, 0, 1, -327677, 0, 1, -327676, 0, 1, -327675, 0, 1, -327674, 0, 2, -196624, 0, 4, -196623, 0, 196614, -196622, 0, 131073, -196621, 0, 131073, -196620, 0, 131073, -196619, 0, 131073, -196618, 0, 131073, -196617, 0, 131073, -196616, 0, 131073, -196615, 0, 65542, -196614, 0, 65537, -196613, 0, 65537, -196612, 0, 65537, -196611, 0, 65537, -196610, 0, 65541, -196609, 0, 131073, -262144, 0, 131073, -262143, 0, 131073, -262142, 0, 131073, -262141, 0, 131073, -262140, 0, 131073, -262139, 0, 65542, -262138, 0, 65538, -131088, 0, 65539, -131079, 0, 131072, -131078, 0, 65542, -131077, 0, 65537, -131076, 0, 65537, -131075, 0, 65537, -131074, 0, 65538, -196603, 0, 65536, -196602, 0, 65538, -65552, 0, 196612, -65551, 0, 6, -65550, 0, 1, -65549, 0, 1, -65548, 0, 2, -65542, 0, 65536, -65541, 0, 65537, -65540, 0, 65537, -65539, 0, 65537, -65538, 0, 65538, -131070, 0, 3, -131067, 0, 131072, -131066, 0, 196613, -131065, 0, 7, -15, 0, 65536, -14, 0, 65537, -13, 0, 65537, -12, 0, 65538, -6, 0, 65536, -5, 0, 65537, -4, 0, 65541, -3, 0, 131073, -2, 0, 196613, -1, 0, 196610, -65534, 0, 65539, -65529, 0, 65539, 65521, 0, 65536, 65522, 0, 65537, 65523, 0, 65537, 65524, 0, 65538, 65530, 0, 65536, 65531, 0, 65541, 65532, 0, 131074, 2, 0, 65539, 7, 0, 65539, 131057, 0, 65536, 131058, 0, 65537, 131059, 0, 65541, 131060, 0, 196613, 131061, 0, 196610, 131066, 0, 131072, 131067, 0, 131074, 65538, 0, 131076, 65539, 0, 1, 65540, 0, 1, 65541, 0, 1, 65542, 0, 5, 65543, 0, 196615, 196593, 0, 65536, 196594, 0, 65541, 196595, 0, 131074, 131073, 0, 0, 131074, 0, 131078, 131075, 0, 65537, 131076, 0, 65537, 131077, 0, 65537, 131078, 0, 65538, 262129, 0, 65536, 262130, 0, 65538, 196609, 0, 65536, 196610, 0, 65537, 196611, 0, 65537, 196612, 0, 65537, 196613, 0, 65537, 196614, 0, 65538, 327665, 0, 65536, 327666, 0, 65538, 327675, 0, 0, 327676, 0, 1, 327677, 0, 2, 262145, 0, 65536, 262146, 0, 65537, 262147, 0, 65537, 262148, 0, 65537, 262149, 0, 65537, 262150, 0, 65538, 393201, 0, 65536, 393202, 0, 65538, 393210, 0, 0, 393211, 0, 131078, 393212, 0, 65541, 393213, 0, 131074, 327680, 0, 0, 327681, 0, 131078, 327682, 0, 65537, 327683, 0, 65537, 327684, 0, 65537, 327685, 0, 65537, 327686, 0, 65538, 458737, 0, 65536, 458738, 0, 65538, 458744, 0, 0, 458745, 0, 1, 458746, 0, 131078, 458747, 0, 65537, 458748, 0, 65538, 393216, 0, 65536, 393217, 0, 65537, 393218, 0, 65537, 393219, 0, 65537, 393220, 0, 65537, 393221, 0, 65537, 393222, 0, 65538, 524273, 0, 65536, 524274, 0, 131077, 524275, 0, 1, 524276, 0, 1, 524277, 0, 1, 524278, 0, 1, 524279, 0, 1, 524280, 0, 131078, 524281, 0, 65537, 524282, 0, 65537, 524283, 0, 65537, 524284, 0, 131077, 524285, 0, 1, 524286, 0, 1, 524287, 0, 1, 458752, 0, 131078, 458753, 0, 65537, 458754, 0, 65537, 458755, 0, 65537, 458756, 0, 65537, 458757, 0, 65537, 458758, 0, 65538, 589809, 0, 131072, 589810, 0, 131073, 589811, 0, 131073, 589812, 0, 131073, 589813, 0, 131073, 589814, 0, 131073, 589815, 0, 131073, 589816, 0, 131073, 589817, 0, 131073, 589818, 0, 131073, 589819, 0, 131073, 589820, 0, 131073, 589821, 0, 131073, 589822, 0, 131073, 589823, 0, 131073, 524288, 0, 131073, 524289, 0, 131073, 524290, 0, 131073, 524291, 0, 131073, 524292, 0, 131073, 524293, 0, 131073, 524294, 0, 131074 )
+
+[node name="SludgeTilemap" type="TileMap" parent="."]
+tile_set = ExtResource( 2 )
+cell_size = Vector2( 8, 8 )
+format = 1
+tile_data = PoolIntArray( -196622, 0, 1, -196621, 0, 0, -196618, 0, 2, -196617, 0, 5, -196616, 0, 3, -196613, 0, 2, -196610, 0, 4, -262143, 0, 5, -262142, 0, 5, -262141, 0, 4, -262139, 0, 1, -131079, 0, 4, -131077, 0, 3, -131076, 0, 1, -131074, 0, 5, -196603, 0, 1, -65549, 0, 5, -65548, 0, 1, -65542, 0, 3, -65540, 0, 5, -131070, 0, 2, -131067, 0, 5, -14, 0, 0, -12, 0, 3, -2, 0, 5, -1, 0, 0, -65534, 0, 1, 65530, 0, 5, 65532, 0, 0, 131058, 0, 3, 131060, 0, 2, 131061, 0, 1, 131066, 0, 5, 131067, 0, 0, 65539, 0, 1, 65540, 0, 3, 65541, 0, 5, 196594, 0, 0, 196595, 0, 4, 131073, 0, 4, 131075, 0, 2, 196609, 0, 1, 196610, 0, 3, 196613, 0, 1, 327676, 0, 2, 327677, 0, 5, 262146, 0, 0, 262148, 0, 5, 262149, 0, 0, 393202, 0, 1, 393210, 0, 0, 393211, 0, 1, 393213, 0, 2, 327680, 0, 2, 327682, 0, 1, 327684, 0, 2, 458738, 0, 1, 458744, 0, 1, 458747, 0, 2, 393217, 0, 1, 393218, 0, 4, 393219, 0, 5, 393220, 0, 5, 524275, 0, 0, 524276, 0, 4, 524278, 0, 1, 524279, 0, 3, 524280, 0, 1, 524284, 0, 5, 524285, 0, 2, 524287, 0, 2, 458752, 0, 3, 458754, 0, 0, 458756, 0, 1, 458757, 0, 5 )
+
+[node name="Enemies" type="Node2D" parent="."]
+
+[node name="Rat" parent="Enemies" instance=ExtResource( 6 )]
+position = Vector2( -28, 31 )
+
+[node name="Rat2" parent="Enemies" instance=ExtResource( 6 )]
+position = Vector2( -8, 55 )
+
+[node name="Spider" parent="Enemies" instance=ExtResource( 7 )]
+position = Vector2( -68, -19 )
+
+[node name="LevelSpawns" type="Node2D" parent="."]
+
+[node name="LevelSpawner" parent="LevelSpawns" instance=ExtResource( 4 )]
+position = Vector2( -106, -20 )
+enter_direction_key = "Left"
+spawn_velocity = Vector2( 32, 0 )
+force_direction = 1
+
+[node name="LevelSpawner2" parent="LevelSpawns" instance=ExtResource( 4 )]
+position = Vector2( 42, 4 )
+enter_direction_key = "Right"
+spawn_velocity = Vector2( 32, 0 )
+force_direction = -1
+
+[node name="LevelExits" type="Node2D" parent="."]
+
+[node name="LevelExit" parent="LevelExits" instance=ExtResource( 5 )]
+position = Vector2( -116, -20 )
+next_level = "res://World/Areas/Sewers/Right1.tscn"
+enter_direction_key = "Right"
+
+[node name="CollisionShape2D" parent="LevelExits/LevelExit" index="0"]
+shape = SubResource( 1 )
+
+[node name="LevelExit2" parent="LevelExits" instance=ExtResource( 5 )]
+position = Vector2( 52, 0 )
+next_level = "res://World/Areas/Sewers/Right3.tscn"
+enter_direction_key = "Left"
+
+[node name="CollisionShape2D" parent="LevelExits/LevelExit2" index="0"]
+shape = SubResource( 2 )
+
+[node name="Player" parent="." instance=ExtResource( 3 )]
+position = Vector2( -106, -20 )
+
+[node name="Camera2D" parent="Player" instance=ExtResource( 8 )]
+target = NodePath("..")
+
+[node name="TopLeft" parent="Player/Camera2D/Limits" index="0"]
+position = Vector2( -112, -32 )
+
+[node name="BottomRight" parent="Player/Camera2D/Limits" index="1"]
+position = Vector2( 48, 64 )
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+color = Color( 0.501961, 0.501961, 0.501961, 1 )
+
+[editable path="LevelExits/LevelExit"]
+[editable path="LevelExits/LevelExit2"]
+[editable path="Player/Camera2D"]
