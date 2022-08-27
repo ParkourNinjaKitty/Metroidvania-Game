@@ -15,13 +15,13 @@
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 13, 6 )
 
-[sub_resource type="RectangleShape2D" id=6]
+[sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 12.5, 5.5 )
 
-[sub_resource type="RectangleShape2D" id=7]
+[sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 15, 7 )
 
-[sub_resource type="Animation" id=26]
+[sub_resource type="Animation" id=4]
 resource_name = "AlreadyDead"
 length = 0.1
 tracks/0/type = "value"
@@ -97,7 +97,7 @@ tracks/5/keys = {
 "values": [ false ]
 }
 
-[sub_resource type="Animation" id=18]
+[sub_resource type="Animation" id=5]
 resource_name = "DashTelegraph"
 length = 0.9
 tracks/0/type = "value"
@@ -141,7 +141,7 @@ tracks/2/keys = {
 } ]
 }
 
-[sub_resource type="Animation" id=22]
+[sub_resource type="Animation" id=6]
 resource_name = "Death"
 length = 0.7
 tracks/0/type = "value"
@@ -205,7 +205,7 @@ tracks/4/keys = {
 "values": [ 0.1 ]
 }
 tracks/5/type = "value"
-tracks/5/path = NodePath("Scepter/CollisionShape2D:disabled")
+tracks/5/path = NodePath("Scepter/Hitbox/CollisionShape2D:disabled")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/imported = false
@@ -241,7 +241,7 @@ tracks/7/keys = {
 "values": [ true ]
 }
 
-[sub_resource type="Animation" id=11]
+[sub_resource type="Animation" id=7]
 resource_name = "Idle"
 length = 0.1
 loop = true
@@ -258,7 +258,7 @@ tracks/0/keys = {
 "values": [ 3 ]
 }
 
-[sub_resource type="Animation" id=14]
+[sub_resource type="Animation" id=8]
 resource_name = "JumpTelegraph"
 length = 0.3
 tracks/0/type = "value"
@@ -302,7 +302,7 @@ tracks/2/keys = {
 } ]
 }
 
-[sub_resource type="Animation" id=16]
+[sub_resource type="Animation" id=9]
 resource_name = "RatRainLeft"
 length = 1.5
 tracks/0/type = "value"
@@ -404,7 +404,7 @@ tracks/7/keys = {
 } ]
 }
 
-[sub_resource type="Animation" id=25]
+[sub_resource type="Animation" id=10]
 resource_name = "RatRainRight"
 length = 1.5
 tracks/0/type = "value"
@@ -506,7 +506,7 @@ tracks/7/keys = {
 } ]
 }
 
-[sub_resource type="Animation" id=12]
+[sub_resource type="Animation" id=11]
 resource_name = "Run"
 length = 0.2
 loop = true
@@ -523,7 +523,7 @@ tracks/0/keys = {
 "values": [ 0, 1 ]
 }
 
-[sub_resource type="Animation" id=24]
+[sub_resource type="Animation" id=12]
 resource_name = "Spawn"
 length = 4.8
 tracks/0/type = "value"
@@ -633,7 +633,7 @@ tracks/7/keys = {
 } ]
 }
 
-[sub_resource type="Animation" id=19]
+[sub_resource type="Animation" id=13]
 resource_name = "Hurt"
 length = 0.2
 tracks/0/type = "value"
@@ -649,20 +649,19 @@ tracks/0/keys = {
 "values": [ 8, 3 ]
 }
 
-[sub_resource type="RectangleShape2D" id=2]
+[sub_resource type="RectangleShape2D" id=14]
 extents = Vector2( 4, 1.5 )
 
-[sub_resource type="RectangleShape2D" id=3]
+[sub_resource type="RectangleShape2D" id=15]
 extents = Vector2( 4, 2 )
 
-[sub_resource type="RectangleShape2D" id=4]
+[sub_resource type="RectangleShape2D" id=16]
 extents = Vector2( 5, 0.5 )
 
-[sub_resource type="RectangleShape2D" id=5]
+[sub_resource type="RectangleShape2D" id=17]
 extents = Vector2( 1, 1 )
 
-[sub_resource type="Animation" id=8]
-resource_name = "SwingLeft"
+[sub_resource type="Animation" id=18]
 tracks/0/type = "value"
 tracks/0/path = NodePath("Scepter:position")
 tracks/0/interp = 1
@@ -726,8 +725,7 @@ tracks/4/keys = {
 } ]
 }
 
-[sub_resource type="Animation" id=13]
-resource_name = "SwingRight"
+[sub_resource type="Animation" id=19]
 tracks/0/type = "value"
 tracks/0/path = NodePath("Scepter:position")
 tracks/0/interp = 1
@@ -851,13 +849,15 @@ tracks/1/keys = {
 } ]
 }
 
-[sub_resource type="RectangleShape2D" id=27]
+[sub_resource type="RectangleShape2D" id=22]
 extents = Vector2( 3, 1 )
 
-[sub_resource type="RectangleShape2D" id=10]
+[sub_resource type="RectangleShape2D" id=23]
 extents = Vector2( 19, 6 )
 
-[node name="RatKing" type="KinematicBody2D" groups=["Boss"]]
+[node name="RatKing" type="KinematicBody2D" groups=[
+"Boss",
+]]
 position = Vector2( 96, -6 )
 collision_layer = 4
 script = ExtResource( 1 )
@@ -891,7 +891,7 @@ script = ExtResource( 9 )
 damage = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
-shape = SubResource( 6 )
+shape = SubResource( 2 )
 disabled = true
 
 [node name="Hurtbox" type="Area2D" parent="."]
@@ -900,23 +900,23 @@ collision_layer = 64
 collision_mask = 8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
-shape = SubResource( 7 )
+shape = SubResource( 3 )
 disabled = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "Idle"
-anims/AlreadyDead = SubResource( 26 )
-anims/DashTelegraph = SubResource( 18 )
-anims/Death = SubResource( 22 )
-anims/Idle = SubResource( 11 )
-anims/JumpTelegraph = SubResource( 14 )
-anims/RatRainLeft = SubResource( 16 )
-anims/RatRainRight = SubResource( 25 )
-anims/Run = SubResource( 12 )
-anims/Spawn = SubResource( 24 )
+anims/AlreadyDead = SubResource( 4 )
+anims/DashTelegraph = SubResource( 5 )
+anims/Death = SubResource( 6 )
+anims/Idle = SubResource( 7 )
+anims/JumpTelegraph = SubResource( 8 )
+anims/RatRainLeft = SubResource( 9 )
+anims/RatRainRight = SubResource( 10 )
+anims/Run = SubResource( 11 )
+anims/Spawn = SubResource( 12 )
 
 [node name="HurtAnimationPlayer" type="AnimationPlayer" parent="."]
-anims/Hurt = SubResource( 19 )
+anims/Hurt = SubResource( 13 )
 
 [node name="Phase1Cooldown" type="Timer" parent="."]
 one_shot = true
@@ -944,7 +944,8 @@ offset = Vector2( -6, 0 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Scepter"]
 visible = false
 position = Vector2( 0, 2.5 )
-shape = SubResource( 2 )
+shape = SubResource( 14 )
+disabled = true
 
 [node name="Hitbox" type="Area2D" parent="Scepter"]
 visible = false
@@ -955,7 +956,7 @@ script = ExtResource( 9 )
 damage = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Scepter/Hitbox"]
-shape = SubResource( 3 )
+shape = SubResource( 15 )
 disabled = true
 
 [node name="WallCollision" type="Area2D" parent="Scepter"]
@@ -964,7 +965,7 @@ position = Vector2( 0, 2.5 )
 collision_layer = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Scepter/WallCollision"]
-shape = SubResource( 4 )
+shape = SubResource( 16 )
 
 [node name="BossCollision" type="Area2D" parent="Scepter"]
 visible = false
@@ -973,15 +974,15 @@ collision_layer = 0
 collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Scepter/BossCollision"]
-shape = SubResource( 5 )
+shape = SubResource( 17 )
 
 [node name="WallCollisionTimer" type="Timer" parent="Scepter"]
 one_shot = true
 
 [node name="SwingAttack" type="AnimationPlayer" parent="Scepter"]
 root_node = NodePath("../..")
-anims/SwingLeft = SubResource( 8 )
-anims/SwingRight = SubResource( 13 )
+anims/SwingLeft = SubResource( 18 )
+anims/SwingRight = SubResource( 19 )
 
 [node name="ThrowAttackTelegraph" type="AnimationPlayer" parent="Scepter"]
 root_node = NodePath("../..")
@@ -1021,7 +1022,7 @@ one_shot = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="JumpAttack/GroundCollision"]
 position = Vector2( 0, 6 )
-shape = SubResource( 27 )
+shape = SubResource( 22 )
 
 [node name="RatRainAttack" type="Node2D" parent="."]
 script = ExtResource( 5 )
@@ -1045,7 +1046,7 @@ visible = false
 collision_layer = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DashAttack/WallCollision"]
-shape = SubResource( 10 )
+shape = SubResource( 23 )
 
 [connection signal="area_entered" from="Hurtbox" to="." method="_on_Hurtbox_area_entered"]
 [connection signal="timeout" from="Phase1Cooldown" to="." method="_on_Phase1Cooldown_timeout"]

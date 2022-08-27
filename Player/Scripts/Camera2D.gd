@@ -31,7 +31,8 @@ func _process(delta):
 		trauma = max(trauma - decay * delta, 0)
 		shake()
 
-func add_trauma(amount):
+func add_trauma(amount, time):
+	decay = time
 	trauma = min(trauma + amount, 1.0)
 
 func shake():
