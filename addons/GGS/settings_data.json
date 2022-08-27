@@ -175,7 +175,7 @@
 			"window_setting_index": "15"
 		},
 		"current": {
-			"value": true,
+			"value": false,
 			"window_script_path": "res://addons/GGS/logic/window_resolution.gd",
 			"window_setting_index": "15"
 		},

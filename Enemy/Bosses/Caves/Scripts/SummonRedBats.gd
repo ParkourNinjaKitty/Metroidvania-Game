@@ -8,7 +8,7 @@ export var spawn_height = 0
 
 var bats_left_to_spawn = 0
 
-onready var bat_scene = load("res://Enemy/Flyer/Scenes/Bat.tscn")
+onready var bat_scene = load("res://Enemy/Flyer/Scenes/RedBat.tscn")
 
 func bat_summon():
 	bats_left_to_spawn = amount_of_bats

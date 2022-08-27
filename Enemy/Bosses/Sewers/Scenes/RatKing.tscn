@@ -632,6 +632,42 @@ tracks/7/keys = {
 "method": "shake"
 } ]
 }
+tracks/8/type = "value"
+tracks/8/path = NodePath("Hitbox/CollisionShape2D:disabled")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0, 4.8 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/9/type = "value"
+tracks/9/path = NodePath("Hurtbox/CollisionShape2D:disabled")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 0, 4.8 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/10/type = "value"
+tracks/10/path = NodePath("Scepter/Hitbox/CollisionShape2D:disabled")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = {
+"times": PoolRealArray( 0, 4.8 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
 
 [sub_resource type="Animation" id=13]
 resource_name = "Hurt"
@@ -877,7 +913,7 @@ phase3_health = 10
 position = Vector2( 0, -2 )
 texture = ExtResource( 8 )
 hframes = 26
-frame = 18
+frame = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visible = false
@@ -928,7 +964,7 @@ one_shot = true
 one_shot = true
 
 [node name="Scepter" type="KinematicBody2D" parent="."]
-position = Vector2( -6, 3 )
+position = Vector2( -6, 2 )
 collision_layer = 0
 script = ExtResource( 2 )
 throw_speed = 128

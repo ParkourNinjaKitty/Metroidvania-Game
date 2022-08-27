@@ -18,6 +18,7 @@ enum phase3 {}
 func phase1_func():
 	velocity = Vector2(0, 0)
 	var next_attack = phase1.keys()[randi() % phase1.size()]
+	print(next_attack)
 	if next_attack == "HORIZONTALBATS":
 		horizontalbats()
 	if next_attack == "VERTICALBATS":
@@ -31,6 +32,7 @@ func phase1_func():
 func phase2_func():
 	velocity = Vector2(0, 0)
 	var next_attack = phase1.keys()[randi() % phase1.size()]
+	print(next_attack)
 	if next_attack == "GROUNDSLAM":
 		groundslam()
 	if next_attack == "SUMMONREDBATS":
@@ -48,7 +50,7 @@ func verticalbats():
 	pass
 
 func groundsweep():
-	pass
+	$GroundSweep.call("sweep")
 
 func summonbats():
 	pass

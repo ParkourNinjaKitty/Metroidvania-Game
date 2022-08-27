@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=2]
+[gd_scene load_steps=23 format=2]
 
 [ext_resource path="res://Player/Scenes/ScreenShakeController.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Enemy/Bosses/Caves/Scripts/GroundSweep.gd" type="Script" id=2]
@@ -12,7 +12,7 @@
 [ext_resource path="res://addons/kenney_particle_pack/smoke_07.png" type="Texture" id=10]
 [ext_resource path="res://Enemy/Bosses/Caves/Scripts/GiantBat.gd" type="Script" id=11]
 
-[sub_resource type="ParticlesMaterial" id=15]
+[sub_resource type="ParticlesMaterial" id=1]
 lifetime_randomness = 0.2
 flag_disable_z = true
 spread = 180.0
@@ -24,17 +24,16 @@ angular_velocity_random = 1.0
 orbit_velocity = 0.5
 orbit_velocity_random = 1.0
 
-[sub_resource type="RectangleShape2D" id=1]
+[sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 13, 6 )
 
-[sub_resource type="RectangleShape2D" id=2]
+[sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 12.5, 5.5 )
 
-[sub_resource type="RectangleShape2D" id=3]
+[sub_resource type="RectangleShape2D" id=4]
 extents = Vector2( 15, 7 )
 
-[sub_resource type="Animation" id=4]
-resource_name = "AlreadyDead"
+[sub_resource type="Animation" id=5]
 length = 0.1
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
@@ -118,7 +117,7 @@ tracks/0/keys = {
 "values": [ 5, 6, 7, 8, 9, 10 ]
 }
 
-[sub_resource type="Animation" id=12]
+[sub_resource type="Animation" id=8]
 resource_name = "Spawn"
 length = 5.4
 tracks/0/type = "value"
@@ -169,7 +168,7 @@ tracks/3/keys = {
 "times": PoolRealArray( 1.9 ),
 "transitions": PoolRealArray( 1 ),
 "values": [ {
-"args": [ 0.5, 0.95 ],
+"args": [ 0.5, 2.5 ],
 "method": "shake"
 } ]
 }
@@ -222,7 +221,7 @@ tracks/7/keys = {
 "values": [ true, false ]
 }
 
-[sub_resource type="Animation" id=13]
+[sub_resource type="Animation" id=9]
 resource_name = "Hurt"
 length = 0.2
 tracks/0/type = "value"
@@ -238,11 +237,9 @@ tracks/0/keys = {
 "values": [ 8, 3 ]
 }
 
-[sub_resource type="RectangleShape2D" id=14]
-extents = Vector2( 19, 6 )
-
-[sub_resource type="Animation" id=16]
+[sub_resource type="Animation" id=10]
 resource_name = "GroundSweepLeft"
+length = 2.0
 tracks/0/type = "value"
 tracks/0/path = NodePath("../Sprite:frame")
 tracks/0/interp = 1
@@ -274,10 +271,10 @@ tracks/2/loop_wrap = true
 tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
+"times": PoolRealArray( 0, 0.2, 2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
 "update": 1,
-"values": [ false ]
+"values": [ false, true, false ]
 }
 tracks/3/type = "value"
 tracks/3/path = NodePath("../Hitbox/CollisionShape2D:disabled")
@@ -286,10 +283,10 @@ tracks/3/loop_wrap = true
 tracks/3/imported = false
 tracks/3/enabled = true
 tracks/3/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
+"times": PoolRealArray( 0, 0.4, 2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
 "update": 1,
-"values": [ true ]
+"values": [ true, false, true ]
 }
 tracks/4/type = "value"
 tracks/4/path = NodePath("../Hurtbox/CollisionShape2D:disabled")
@@ -298,73 +295,10 @@ tracks/4/loop_wrap = true
 tracks/4/imported = false
 tracks/4/enabled = true
 tracks/4/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
+"times": PoolRealArray( 0, 0.4, 2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
 "update": 1,
-"values": [ true ]
-}
-
-[sub_resource type="Animation" id=17]
-resource_name = "GroundSweepRight"
-tracks/0/type = "value"
-tracks/0/path = NodePath("../Sprite:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ 11 ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath("../Sprite:flip_h")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ true ]
-}
-tracks/2/type = "value"
-tracks/2/path = NodePath("../Sprite:visible")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ false ]
-}
-tracks/3/type = "value"
-tracks/3/path = NodePath("../Hitbox/CollisionShape2D:disabled")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ true ]
-}
-tracks/4/type = "value"
-tracks/4/path = NodePath("../Hurtbox/CollisionShape2D:disabled")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ true ]
+"values": [ true, false, true ]
 }
 tracks/5/type = "value"
 tracks/5/path = NodePath("..:position")
@@ -373,18 +307,97 @@ tracks/5/loop_wrap = true
 tracks/5/imported = false
 tracks/5/enabled = true
 tracks/5/keys = {
+"times": PoolRealArray( 0, 0.4, 2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 130, -6 ), Vector2( 130, -6 ), Vector2( -34, -6 ) ]
+}
+
+[sub_resource type="Animation" id=11]
+resource_name = "GroundSweepRight"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("../Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 11 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("../Sprite:flip_h")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("../Sprite:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.2, 2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ false, true, false ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("../Hitbox/CollisionShape2D:disabled")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.4, 2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ true, false, true ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("../Hurtbox/CollisionShape2D:disabled")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 0.4 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("..:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 0.4, 2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
 "update": 0,
-"values": [ Vector2( -2, -6 ) ]
+"values": [ Vector2( -2, -6 ), Vector2( -2, -6 ), Vector2( 162, -6 ) ]
 }
 
 [node name="GiantBat" type="KinematicBody2D" groups=[
 "Boss",
 ]]
-position = Vector2( -2, -6 )
+position = Vector2( 162, -6 )
+collision_layer = 4
 script = ExtResource( 11 )
+phase1_attack_cooldown = 3
 phase1_transition_cooldown = 1
+phase1_health = 5
 
 [node name="ScreenShakeController" parent="." instance=ExtResource( 1 )]
 
@@ -392,6 +405,7 @@ phase1_transition_cooldown = 1
 visible = false
 position = Vector2( 0, -2 )
 texture = ExtResource( 7 )
+flip_h = true
 hframes = 12
 frame = 11
 
@@ -401,7 +415,7 @@ emitting = false
 amount = 15
 one_shot = true
 explosiveness = 0.3
-process_material = SubResource( 15 )
+process_material = SubResource( 1 )
 texture = ExtResource( 8 )
 
 [node name="SmokeParticles2" type="Particles2D" parent="."]
@@ -410,7 +424,7 @@ emitting = false
 amount = 15
 one_shot = true
 explosiveness = 0.3
-process_material = SubResource( 15 )
+process_material = SubResource( 1 )
 texture = ExtResource( 9 )
 
 [node name="SmokeParticles3" type="Particles2D" parent="."]
@@ -419,42 +433,38 @@ emitting = false
 amount = 15
 one_shot = true
 explosiveness = 0.3
-process_material = SubResource( 15 )
+process_material = SubResource( 1 )
 texture = ExtResource( 10 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
-shape = SubResource( 1 )
+shape = SubResource( 2 )
 
 [node name="Hitbox" type="Area2D" parent="."]
-visible = false
 collision_layer = 16
 collision_mask = 32
 script = ExtResource( 4 )
 damage = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
-shape = SubResource( 2 )
+shape = SubResource( 3 )
 disabled = true
 
 [node name="Hurtbox" type="Area2D" parent="."]
-visible = false
 collision_layer = 64
 collision_mask = 8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
-shape = SubResource( 3 )
-disabled = true
+shape = SubResource( 4 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "Idle"
-anims/AlreadyDead = SubResource( 4 )
+anims/AlreadyDead = SubResource( 5 )
 anims/Death = SubResource( 6 )
 anims/Idle = SubResource( 7 )
-anims/Spawn = SubResource( 12 )
+anims/Spawn = SubResource( 8 )
 
 [node name="HurtAnimationPlayer" type="AnimationPlayer" parent="."]
-anims/Hurt = SubResource( 13 )
+anims/Hurt = SubResource( 9 )
 
 [node name="Phase1Cooldown" type="Timer" parent="."]
 one_shot = true
@@ -471,6 +481,13 @@ script = ExtResource( 6 )
 [node name="VerticalBats" type="Node2D" parent="."]
 script = ExtResource( 5 )
 
+[node name="GroundSweep" type="Node2D" parent="."]
+script = ExtResource( 2 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="GroundSweep"]
+anims/GroundSweepLeft = SubResource( 10 )
+anims/GroundSweepRight = SubResource( 11 )
+
 [node name="SummonBats" type="Node2D" parent="."]
 script = ExtResource( 3 )
 amount_of_bats = 4
@@ -479,26 +496,16 @@ bat_spawn_delay = 0.5
 [node name="BatSpawnTimer" type="Timer" parent="SummonBats"]
 one_shot = true
 
-[node name="GroundSweep" type="Node2D" parent="."]
-script = ExtResource( 2 )
-
-[node name="WallCollision" type="Area2D" parent="GroundSweep"]
-visible = false
-collision_layer = 0
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="GroundSweep/WallCollision"]
-shape = SubResource( 14 )
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="GroundSweep"]
-anims/GroundSweepLeft = SubResource( 16 )
-anims/GroundSweepRight = SubResource( 17 )
+[node name="GroundSlam" type="Node2D" parent="."]
 
 [node name="SummonRedBats" type="Node2D" parent="."]
-script = ExtResource( 3 )
 
 [node name="BatSpawnTimer" type="Timer" parent="SummonRedBats"]
 one_shot = true
 
+[connection signal="area_entered" from="Hurtbox" to="." method="_on_Hurtbox_area_entered"]
+[connection signal="timeout" from="Phase1Cooldown" to="." method="_on_Phase1Cooldown_timeout"]
+[connection signal="timeout" from="Phase2Cooldown" to="." method="_on_Phase2Cooldown_timeout"]
+[connection signal="timeout" from="Phase3Cooldown" to="." method="_on_Phase3Cooldown_timeout"]
 [connection signal="timeout" from="SummonBats/BatSpawnTimer" to="SummonBats" method="_on_BatSpawnTimer_timeout"]
-[connection signal="body_entered" from="GroundSweep/WallCollision" to="GroundSweep" method="_on_WallCollision_body_entered"]
 [connection signal="timeout" from="SummonRedBats/BatSpawnTimer" to="SummonRedBats" method="_on_BatSpawnTimer_timeout"]

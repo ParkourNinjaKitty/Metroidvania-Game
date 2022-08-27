@@ -71,9 +71,6 @@ func spawn():
 
 func start_animation_over():
 	get_tree().get_nodes_in_group("Player")[0].can_move = true
-	$Hitbox/CollisionShape2D.disabled = false
-	$Hurtbox/CollisionShape2D.disabled = false
-	$Scepter/Hitbox/CollisionShape2D.disabled = false
 	phase = phases.PHASE1
 	$Phase1Cooldown.start(phase1_transition_cooldown)
 
