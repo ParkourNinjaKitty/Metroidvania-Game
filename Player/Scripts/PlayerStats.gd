@@ -15,7 +15,7 @@ var last_save_spawn_key = "Start"
 var bosses_killed = []
 var health_pickups_gotten = []
 
-var total_percent_items = 3
+var total_percent_items = 4
 var completion_percent = 0
 
 var spawn_area = "Mudstreet"

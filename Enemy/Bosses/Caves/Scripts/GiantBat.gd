@@ -1,7 +1,6 @@
 extends "res://Enemy/Bosses/Boss.gd"
 
 enum phase1 {
-	HORIZONTALBATS,
 	VERTICALBATS,
 	GROUNDSWEEP,
 	SUMMONBATS
@@ -19,8 +18,6 @@ func phase1_func():
 	velocity = Vector2(0, 0)
 	var next_attack = phase1.keys()[randi() % phase1.size()]
 	print(next_attack)
-	if next_attack == "HORIZONTALBATS":
-		horizontalbats()
 	if next_attack == "VERTICALBATS":
 		verticalbats()
 	if next_attack == "GROUNDSWEEP":
@@ -43,9 +40,6 @@ func phase3_func():
 	$Phase3Cooldown.start(phase3_attack_cooldown)
 
 #phase 1 attacks
-func horizontalbats():
-	pass
-
 func verticalbats():
 	pass
 

@@ -40,4 +40,4 @@ func _on_InAirTimer_timeout():
 func _on_GroundCollision_body_entered(_body):
 	if has_hit_ground == false:
 		has_hit_ground = true
-		get_parent().get_node("ScreenShakeController").shake(land_shake_amount)
+		get_parent().get_node("ScreenShakeController").shake(land_shake_amount, 0.8)

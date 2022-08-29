@@ -175,7 +175,7 @@
 			"window_setting_index": "15"
 		},
 		"current": {
-			"value": false,
+			"value": true,
 			"window_script_path": "res://addons/GGS/logic/window_resolution.gd",
 			"window_setting_index": "15"
 		},
@@ -198,7 +198,7 @@
 			"bus_name": "Music"
 		},
 		"current": {
-			"value": 0.5,
+			"value": 0,
 			"bus_name": "Music"
 		},
 		"logic": "res://addons/GGS/logic/audio_slider.gd"
@@ -210,7 +210,7 @@
 			"bus_name": "Music"
 		},
 		"current": {
-			"value": false,
+			"value": true,
 			"bus_name": "Music"
 		},
 		"logic": "res://addons/GGS/logic/audio_mute.gd"
@@ -222,7 +222,7 @@
 			"bus_name": "SFX"
 		},
 		"current": {
-			"value": 0.5,
+			"value": 0,
 			"bus_name": "SFX"
 		},
 		"logic": "res://addons/GGS/logic/audio_slider.gd"
@@ -234,7 +234,7 @@
 			"bus_name": "SFX"
 		},
 		"current": {
-			"value": false,
+			"value": true,
 			"bus_name": "SFX"
 		},
 		"logic": "res://addons/GGS/logic/audio_mute.gd"
@@ -246,7 +246,7 @@
 			"bus_name": "Master"
 		},
 		"current": {
-			"value": 0.5,
+			"value": 0,
 			"bus_name": "Master"
 		},
 		"logic": "res://addons/GGS/logic/audio_slider.gd"

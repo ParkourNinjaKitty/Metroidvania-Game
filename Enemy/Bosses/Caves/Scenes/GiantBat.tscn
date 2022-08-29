@@ -1,11 +1,11 @@
-[gd_scene load_steps=28 format=2]
+[gd_scene load_steps=30 format=2]
 
 [ext_resource path="res://Player/Scenes/ScreenShakeController.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Enemy/Bosses/Caves/Scripts/GroundSweep.gd" type="Script" id=2]
 [ext_resource path="res://Enemy/Bosses/Caves/Scripts/SummonBats.gd" type="Script" id=3]
 [ext_resource path="res://Enemy/EnemyHitbox.gd" type="Script" id=4]
 [ext_resource path="res://Enemy/Bosses/Caves/Scripts/VerticalBats.gd" type="Script" id=5]
-[ext_resource path="res://Enemy/Bosses/Caves/Scripts/HorizontalBats.gd" type="Script" id=6]
+[ext_resource path="res://Enemy/Flyer/Assets/Bat.png" type="Texture" id=6]
 [ext_resource path="res://Enemy/Bosses/Caves/Assets/GiantBat.png" type="Texture" id=7]
 [ext_resource path="res://addons/kenney_particle_pack/smoke_04.png" type="Texture" id=8]
 [ext_resource path="res://addons/kenney_particle_pack/smoke_01.png" type="Texture" id=9]
@@ -25,7 +25,7 @@ angular_velocity_random = 1.0
 orbit_velocity = 0.5
 orbit_velocity_random = 1.0
 
-[sub_resource type="Animation" id=13]
+[sub_resource type="Animation" id=2]
 resource_name = "Disappear"
 tracks/0/type = "value"
 tracks/0/path = NodePath("SmokeParticles:emitting")
@@ -184,7 +184,7 @@ tracks/12/keys = {
 "values": [ 0.5 ]
 }
 
-[sub_resource type="Animation" id=14]
+[sub_resource type="Animation" id=3]
 resource_name = "Disappear"
 tracks/0/type = "value"
 tracks/0/path = NodePath("SmokeParticles:emitting")
@@ -343,16 +343,16 @@ tracks/12/keys = {
 "values": [ 0.5 ]
 }
 
-[sub_resource type="RectangleShape2D" id=2]
+[sub_resource type="RectangleShape2D" id=4]
 extents = Vector2( 13, 6 )
 
-[sub_resource type="RectangleShape2D" id=3]
+[sub_resource type="RectangleShape2D" id=5]
 extents = Vector2( 12.5, 5.5 )
 
-[sub_resource type="RectangleShape2D" id=4]
+[sub_resource type="RectangleShape2D" id=6]
 extents = Vector2( 15, 7 )
 
-[sub_resource type="Animation" id=5]
+[sub_resource type="Animation" id=7]
 length = 0.1
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
@@ -403,8 +403,7 @@ tracks/3/keys = {
 "values": [ false ]
 }
 
-[sub_resource type="Animation" id=6]
-resource_name = "Death"
+[sub_resource type="Animation" id=8]
 length = 0.7
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
@@ -419,8 +418,7 @@ tracks/0/keys = {
 "values": [ 18, 19, 20, 21, 22, 23, 24, 25 ]
 }
 
-[sub_resource type="Animation" id=7]
-resource_name = "Idle"
+[sub_resource type="Animation" id=9]
 length = 0.6
 loop = true
 tracks/0/type = "value"
@@ -448,8 +446,7 @@ tracks/1/keys = {
 "values": [ Vector2( 64, -38 ) ]
 }
 
-[sub_resource type="Animation" id=8]
-resource_name = "Spawn"
+[sub_resource type="Animation" id=10]
 length = 5.4
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:position")
@@ -624,7 +621,7 @@ tracks/13/keys = {
 "values": [ Color( 1, 1, 1, 1 ) ]
 }
 
-[sub_resource type="Animation" id=12]
+[sub_resource type="Animation" id=11]
 resource_name = "SummonBats"
 length = 2.0
 tracks/0/type = "value"
@@ -676,7 +673,7 @@ tracks/3/keys = {
 "times": PoolRealArray( 0, 2 )
 }
 
-[sub_resource type="Animation" id=15]
+[sub_resource type="Animation" id=12]
 resource_name = "SummonRedBats"
 length = 2.0
 tracks/0/type = "value"
@@ -728,8 +725,7 @@ tracks/3/keys = {
 "times": PoolRealArray( 0, 2 )
 }
 
-[sub_resource type="Animation" id=9]
-resource_name = "Hurt"
+[sub_resource type="Animation" id=13]
 length = 0.2
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
@@ -744,8 +740,13 @@ tracks/0/keys = {
 "values": [ 8, 3 ]
 }
 
-[sub_resource type="Animation" id=10]
-resource_name = "GroundSweepLeft"
+[sub_resource type="Animation" id=16]
+resource_name = "VerticalBats"
+
+[sub_resource type="RectangleShape2D" id=17]
+extents = Vector2( 3, 2 )
+
+[sub_resource type="Animation" id=14]
 length = 2.0
 tracks/0/type = "value"
 tracks/0/path = NodePath("../Sprite:frame")
@@ -818,8 +819,7 @@ tracks/5/keys = {
 "times": PoolRealArray( 0, 2 )
 }
 
-[sub_resource type="Animation" id=11]
-resource_name = "GroundSweepRight"
+[sub_resource type="Animation" id=15]
 length = 2.0
 tracks/0/type = "value"
 tracks/0/path = NodePath("../Sprite:frame")
@@ -892,7 +892,9 @@ tracks/5/keys = {
 "times": PoolRealArray( 0, 2 )
 }
 
-[node name="GiantBat" type="KinematicBody2D" groups=["Boss"]]
+[node name="GiantBat" type="KinematicBody2D" groups=[
+"Boss",
+]]
 position = Vector2( 64, -38 )
 collision_layer = 4
 script = ExtResource( 11 )
@@ -938,11 +940,11 @@ process_material = SubResource( 1 )
 texture = ExtResource( 10 )
 
 [node name="SmokeScreen" type="AnimationPlayer" parent="."]
-anims/Appear = SubResource( 13 )
-anims/Disappear = SubResource( 14 )
+anims/Appear = SubResource( 2 )
+anims/Disappear = SubResource( 3 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource( 2 )
+shape = SubResource( 4 )
 
 [node name="Hitbox" type="Area2D" parent="."]
 collision_layer = 16
@@ -951,7 +953,7 @@ script = ExtResource( 4 )
 damage = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
-shape = SubResource( 3 )
+shape = SubResource( 5 )
 disabled = true
 
 [node name="Hurtbox" type="Area2D" parent="."]
@@ -959,19 +961,19 @@ collision_layer = 64
 collision_mask = 8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
-shape = SubResource( 4 )
+shape = SubResource( 6 )
 disabled = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/AlreadyDead = SubResource( 5 )
-anims/Death = SubResource( 6 )
-anims/Idle = SubResource( 7 )
-anims/Spawn = SubResource( 8 )
-anims/SummonBats = SubResource( 12 )
-anims/SummonRedBats = SubResource( 15 )
+anims/AlreadyDead = SubResource( 7 )
+anims/Death = SubResource( 8 )
+anims/Idle = SubResource( 9 )
+anims/Spawn = SubResource( 10 )
+anims/SummonBats = SubResource( 11 )
+anims/SummonRedBats = SubResource( 12 )
 
 [node name="HurtAnimationPlayer" type="AnimationPlayer" parent="."]
-anims/Hurt = SubResource( 9 )
+anims/Hurt = SubResource( 13 )
 
 [node name="Phase1Cooldown" type="Timer" parent="."]
 one_shot = true
@@ -982,18 +984,68 @@ one_shot = true
 [node name="Phase3Cooldown" type="Timer" parent="."]
 one_shot = true
 
-[node name="HorizontalBats" type="Node2D" parent="."]
-script = ExtResource( 6 )
-
 [node name="VerticalBats" type="Node2D" parent="."]
 script = ExtResource( 5 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="VerticalBats"]
+anims/VerticalBats = SubResource( 16 )
+
+[node name="Bats" type="Position2D" parent="VerticalBats"]
+
+[node name="Bat1" type="Sprite" parent="VerticalBats/Bats"]
+texture = ExtResource( 6 )
+hframes = 5
+
+[node name="Hitbox" type="Area2D" parent="VerticalBats/Bats/Bat1"]
+script = ExtResource( 4 )
+damage = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="VerticalBats/Bats/Bat1/Hitbox"]
+position = Vector2( 0, 2 )
+shape = SubResource( 17 )
+
+[node name="Bat2" type="Sprite" parent="VerticalBats/Bats"]
+texture = ExtResource( 6 )
+hframes = 5
+
+[node name="Hitbox" type="Area2D" parent="VerticalBats/Bats/Bat2"]
+script = ExtResource( 4 )
+damage = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="VerticalBats/Bats/Bat2/Hitbox"]
+position = Vector2( 0, 2 )
+shape = SubResource( 17 )
+
+[node name="Bat3" type="Sprite" parent="VerticalBats/Bats"]
+texture = ExtResource( 6 )
+hframes = 5
+
+[node name="Hitbox" type="Area2D" parent="VerticalBats/Bats/Bat3"]
+script = ExtResource( 4 )
+damage = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="VerticalBats/Bats/Bat3/Hitbox"]
+position = Vector2( 0, 2 )
+shape = SubResource( 17 )
+
+[node name="Bat4" type="Sprite" parent="VerticalBats/Bats"]
+texture = ExtResource( 6 )
+hframes = 5
+
+[node name="Hitbox" type="Area2D" parent="VerticalBats/Bats/Bat4"]
+script = ExtResource( 4 )
+damage = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="VerticalBats/Bats/Bat4/Hitbox"]
+position = Vector2( 0, 2 )
+shape = SubResource( 17 )
 
 [node name="GroundSweep" type="Node2D" parent="."]
 script = ExtResource( 2 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="GroundSweep"]
-anims/GroundSweepLeft = SubResource( 10 )
-anims/GroundSweepRight = SubResource( 11 )
+anims/GroundSweepLeft = SubResource( 14 )
+anims/GroundSweepRight = SubResource( 15 )
 
 [node name="SummonBats" type="Node2D" parent="."]
 script = ExtResource( 3 )

@@ -28,7 +28,7 @@ func dash():
 
 func _on_WallCollision_body_entered(_body):
 	if is_attacking == true:
-		get_parent().get_node("ScreenShakeController").shake(screen_shake_amount)
+		get_parent().get_node("ScreenShakeController").shake(screen_shake_amount, 0.8)
 		if times_left_to_dash > 0:
 			if get_parent().velocity.x > 0:
 				get_parent().get_node("Sprite").flip_h = false
