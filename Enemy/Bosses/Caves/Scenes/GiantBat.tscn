@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=2]
+[gd_scene load_steps=32 format=2]
 
 [ext_resource path="res://Player/Scenes/ScreenShakeController.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Enemy/Bosses/Caves/Scripts/GroundSweep.gd" type="Script" id=2]
@@ -740,8 +740,238 @@ tracks/0/keys = {
 "values": [ 8, 3 ]
 }
 
+[sub_resource type="Animation" id=18]
+resource_name = "Start"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("Bats:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Bats/HorizontalMovement/Bat1/Hitbox/CollisionShape2D:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Bats/HorizontalMovement/Bat2/Hitbox/CollisionShape2D:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Bats/HorizontalMovement/Bat3/Hitbox/CollisionShape2D:disabled")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Bats/HorizontalMovement/Bat4/Hitbox/CollisionShape2D:disabled")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+
 [sub_resource type="Animation" id=16]
 resource_name = "VerticalBats"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("..:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 64, -38 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Bats:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1, 2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ false, true, false ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Bats:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 1, 2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, -16 ), Vector2( 0, -16 ), Vector2( 0, 64 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Particles/Particles2D:emitting")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0.1, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Particles/Particles2D2:emitting")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0.1, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("Particles/Particles2D3:emitting")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0.1, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("Particles/Particles2D4:emitting")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0.1, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("Particles/Particles2D5:emitting")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0.1, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("Particles/Particles2D6:emitting")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0.1, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/9/type = "value"
+tracks/9/path = NodePath("Particles/Particles2D7:emitting")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 0.1, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/10/type = "value"
+tracks/10/path = NodePath("Particles/Particles2D8:emitting")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = {
+"times": PoolRealArray( 0.1, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/11/type = "animation"
+tracks/11/path = NodePath("../SmokeScreen")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/keys = {
+"clips": PoolStringArray( "Appear", "Disappear" ),
+"times": PoolRealArray( 0, 2 )
+}
+tracks/12/type = "animation"
+tracks/12/path = NodePath("../AnimationPlayer")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/keys = {
+"clips": PoolStringArray( "Idle" ),
+"times": PoolRealArray( 0 )
+}
+
+[sub_resource type="ParticlesMaterial" id=19]
+emission_shape = 2
+emission_box_extents = Vector3( 2, 32, 0 )
+flag_disable_z = true
+direction = Vector3( 0, 1, 0 )
+spread = 90.0
+gravity = Vector3( 0, 98, 0 )
+initial_velocity = 10.0
+initial_velocity_random = 1.0
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+color = Color( 0.380392, 0.0627451, 0.635294, 1 )
 
 [sub_resource type="RectangleShape2D" id=17]
 extents = Vector2( 3, 2 )
@@ -905,35 +1135,39 @@ phase1_health = 5
 [node name="ScreenShakeController" parent="." instance=ExtResource( 1 )]
 
 [node name="Sprite" type="Sprite" parent="."]
-visible = false
 position = Vector2( 0, -2 )
 texture = ExtResource( 7 )
-flip_h = true
 hframes = 12
-frame = 6
+frame = 5
 
 [node name="SmokeParticles" type="Particles2D" parent="."]
+modulate = Color( 1, 1, 1, 0 )
 scale = Vector2( 0.1, 0.1 )
 emitting = false
-amount = 5
+amount = 15
+lifetime = 0.5
 one_shot = true
 explosiveness = 0.3
 process_material = SubResource( 1 )
 texture = ExtResource( 8 )
 
 [node name="SmokeParticles2" type="Particles2D" parent="."]
+modulate = Color( 1, 1, 1, 0 )
 scale = Vector2( 0.1, 0.1 )
 emitting = false
-amount = 5
+amount = 15
+lifetime = 0.5
 one_shot = true
 explosiveness = 0.3
 process_material = SubResource( 1 )
 texture = ExtResource( 9 )
 
 [node name="SmokeParticles3" type="Particles2D" parent="."]
+modulate = Color( 1, 1, 1, 0 )
 scale = Vector2( 0.1, 0.1 )
 emitting = false
-amount = 5
+amount = 15
+lifetime = 0.5
 one_shot = true
 explosiveness = 0.3
 process_material = SubResource( 1 )
@@ -988,57 +1222,194 @@ one_shot = true
 script = ExtResource( 5 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="VerticalBats"]
+autoplay = "Start"
+anims/Start = SubResource( 18 )
 anims/VerticalBats = SubResource( 16 )
 
+[node name="Particles" type="Node2D" parent="VerticalBats"]
+position = Vector2( 0, 38 )
+
+[node name="Particles2D" type="Particles2D" parent="VerticalBats/Particles"]
+position = Vector2( -7, -16 )
+emitting = false
+amount = 100
+one_shot = true
+explosiveness = 0.1
+process_material = SubResource( 19 )
+
+[node name="Particles2D2" type="Particles2D" parent="VerticalBats/Particles"]
+position = Vector2( 14, -16 )
+emitting = false
+amount = 100
+one_shot = true
+explosiveness = 0.1
+process_material = SubResource( 19 )
+
+[node name="Particles2D3" type="Particles2D" parent="VerticalBats/Particles"]
+position = Vector2( -28, -16 )
+emitting = false
+amount = 100
+one_shot = true
+explosiveness = 0.1
+process_material = SubResource( 19 )
+
+[node name="Particles2D4" type="Particles2D" parent="VerticalBats/Particles"]
+position = Vector2( 35, -16 )
+emitting = false
+amount = 100
+one_shot = true
+explosiveness = 0.1
+process_material = SubResource( 19 )
+
+[node name="Particles2D5" type="Particles2D" parent="VerticalBats/Particles"]
+position = Vector2( -49, -16 )
+emitting = false
+amount = 100
+one_shot = true
+explosiveness = 0.1
+process_material = SubResource( 19 )
+
+[node name="Particles2D6" type="Particles2D" parent="VerticalBats/Particles"]
+position = Vector2( 56, -16 )
+emitting = false
+amount = 100
+one_shot = true
+explosiveness = 0.1
+process_material = SubResource( 19 )
+
+[node name="Particles2D7" type="Particles2D" parent="VerticalBats/Particles"]
+position = Vector2( -70, -16 )
+emitting = false
+amount = 100
+one_shot = true
+explosiveness = 0.1
+process_material = SubResource( 19 )
+
+[node name="Particles2D8" type="Particles2D" parent="VerticalBats/Particles"]
+position = Vector2( 77, -16 )
+emitting = false
+amount = 100
+one_shot = true
+explosiveness = 0.1
+process_material = SubResource( 19 )
+
 [node name="Bats" type="Position2D" parent="VerticalBats"]
+visible = false
+position = Vector2( 0, -16 )
 
-[node name="Bat1" type="Sprite" parent="VerticalBats/Bats"]
+[node name="HorizontalMovement" type="Position2D" parent="VerticalBats/Bats"]
+
+[node name="Bat1" type="Sprite" parent="VerticalBats/Bats/HorizontalMovement"]
+position = Vector2( -7, 0 )
 texture = ExtResource( 6 )
 hframes = 5
 
-[node name="Hitbox" type="Area2D" parent="VerticalBats/Bats/Bat1"]
+[node name="Hitbox" type="Area2D" parent="VerticalBats/Bats/HorizontalMovement/Bat1"]
 script = ExtResource( 4 )
 damage = 1
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="VerticalBats/Bats/Bat1/Hitbox"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="VerticalBats/Bats/HorizontalMovement/Bat1/Hitbox"]
 position = Vector2( 0, 2 )
 shape = SubResource( 17 )
+disabled = true
 
-[node name="Bat2" type="Sprite" parent="VerticalBats/Bats"]
+[node name="Bat2" type="Sprite" parent="VerticalBats/Bats/HorizontalMovement"]
+position = Vector2( 14, 0 )
 texture = ExtResource( 6 )
 hframes = 5
 
-[node name="Hitbox" type="Area2D" parent="VerticalBats/Bats/Bat2"]
+[node name="Hitbox" type="Area2D" parent="VerticalBats/Bats/HorizontalMovement/Bat2"]
 script = ExtResource( 4 )
 damage = 1
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="VerticalBats/Bats/Bat2/Hitbox"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="VerticalBats/Bats/HorizontalMovement/Bat2/Hitbox"]
 position = Vector2( 0, 2 )
 shape = SubResource( 17 )
+disabled = true
 
-[node name="Bat3" type="Sprite" parent="VerticalBats/Bats"]
+[node name="Bat3" type="Sprite" parent="VerticalBats/Bats/HorizontalMovement"]
+position = Vector2( -28, 0 )
 texture = ExtResource( 6 )
 hframes = 5
 
-[node name="Hitbox" type="Area2D" parent="VerticalBats/Bats/Bat3"]
+[node name="Hitbox" type="Area2D" parent="VerticalBats/Bats/HorizontalMovement/Bat3"]
 script = ExtResource( 4 )
 damage = 1
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="VerticalBats/Bats/Bat3/Hitbox"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="VerticalBats/Bats/HorizontalMovement/Bat3/Hitbox"]
 position = Vector2( 0, 2 )
 shape = SubResource( 17 )
+disabled = true
 
-[node name="Bat4" type="Sprite" parent="VerticalBats/Bats"]
+[node name="Bat4" type="Sprite" parent="VerticalBats/Bats/HorizontalMovement"]
+position = Vector2( 35, 0 )
 texture = ExtResource( 6 )
 hframes = 5
 
-[node name="Hitbox" type="Area2D" parent="VerticalBats/Bats/Bat4"]
+[node name="Hitbox" type="Area2D" parent="VerticalBats/Bats/HorizontalMovement/Bat4"]
 script = ExtResource( 4 )
 damage = 1
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="VerticalBats/Bats/Bat4/Hitbox"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="VerticalBats/Bats/HorizontalMovement/Bat4/Hitbox"]
 position = Vector2( 0, 2 )
 shape = SubResource( 17 )
+disabled = true
+
+[node name="Bat5" type="Sprite" parent="VerticalBats/Bats/HorizontalMovement"]
+position = Vector2( -49, 0 )
+texture = ExtResource( 6 )
+hframes = 5
+
+[node name="Hitbox" type="Area2D" parent="VerticalBats/Bats/HorizontalMovement/Bat5"]
+script = ExtResource( 4 )
+damage = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="VerticalBats/Bats/HorizontalMovement/Bat5/Hitbox"]
+position = Vector2( 0, 2 )
+shape = SubResource( 17 )
+disabled = true
+
+[node name="Bat6" type="Sprite" parent="VerticalBats/Bats/HorizontalMovement"]
+position = Vector2( 56, 0 )
+texture = ExtResource( 6 )
+hframes = 5
+
+[node name="Hitbox" type="Area2D" parent="VerticalBats/Bats/HorizontalMovement/Bat6"]
+script = ExtResource( 4 )
+damage = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="VerticalBats/Bats/HorizontalMovement/Bat6/Hitbox"]
+position = Vector2( 0, 2 )
+shape = SubResource( 17 )
+disabled = true
+
+[node name="Bat7" type="Sprite" parent="VerticalBats/Bats/HorizontalMovement"]
+position = Vector2( -70, 0 )
+texture = ExtResource( 6 )
+hframes = 5
+
+[node name="Hitbox" type="Area2D" parent="VerticalBats/Bats/HorizontalMovement/Bat7"]
+script = ExtResource( 4 )
+damage = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="VerticalBats/Bats/HorizontalMovement/Bat7/Hitbox"]
+position = Vector2( 0, 2 )
+shape = SubResource( 17 )
+disabled = true
+
+[node name="Bat8" type="Sprite" parent="VerticalBats/Bats/HorizontalMovement"]
+position = Vector2( 77, 0 )
+texture = ExtResource( 6 )
+hframes = 5
+
+[node name="Hitbox" type="Area2D" parent="VerticalBats/Bats/HorizontalMovement/Bat8"]
+script = ExtResource( 4 )
+damage = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="VerticalBats/Bats/HorizontalMovement/Bat8/Hitbox"]
+position = Vector2( 0, 2 )
+shape = SubResource( 17 )
+disabled = true
 
 [node name="GroundSweep" type="Node2D" parent="."]
 script = ExtResource( 2 )
