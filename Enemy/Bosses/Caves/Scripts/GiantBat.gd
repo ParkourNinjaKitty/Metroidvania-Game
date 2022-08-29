@@ -53,14 +53,14 @@ func groundsweep():
 	$GroundSweep.call("sweep")
 
 func summonbats():
-	pass
+	$AnimationPlayer.play("SummonBats")
 
 #phase 2 attacks
 func groundslam():
 	pass
 
 func summonredbats():
-	pass
+	$AnimationPlayer.play("SummonRedBats")
 
 #cooldown timers
 func _on_Phase1Cooldown_timeout():

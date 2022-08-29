@@ -113,6 +113,8 @@ shape = SubResource( 2 )
 
 [node name="LevelExit3" parent="LevelExits" instance=ExtResource( 5 )]
 position = Vector2( 300, 168 )
+next_level = "res://World/Areas/Caves/GiantBatBossRoom.tscn"
+enter_direction_key = "Left"
 
 [node name="CollisionShape2D" parent="LevelExits/LevelExit3" index="0"]
 shape = SubResource( 3 )

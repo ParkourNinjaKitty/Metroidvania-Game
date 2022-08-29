@@ -11,7 +11,7 @@
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 4, 8 )
 
-[node name="Caves" type="Node2D"]
+[node name="Caves" type="Node2D" groups=["Parent"]]
 
 [node name="BackgroundColor" type="ColorRect" parent="."]
 margin_top = -72.0
@@ -48,7 +48,7 @@ force_direction = 1
 
 [node name="LevelExit" parent="LevelExits" instance=ExtResource( 3 )]
 position = Vector2( 4, -8 )
-next_level = "res://World/Areas/Caves/Down1.tscn"
+next_level = "res://World/Areas/Caves/GiantBatBossRoom.tscn"
 enter_direction_key = "Right"
 
 [node name="CollisionShape2D" parent="LevelExits/LevelExit" index="0"]
