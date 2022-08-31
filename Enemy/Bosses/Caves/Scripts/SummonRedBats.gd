@@ -13,7 +13,7 @@ onready var bat_scene = load("res://Enemy/Flyer/Scenes/RedBat.tscn")
 func red_bat_summon():
 	bats_left_to_spawn = amount_of_bats
 	$BatSpawnTimer.start(bat_spawn_delay)
-	get_parent().get_node("AnimationPlayer").play("SummonBats")
+	get_parent().get_node("AnimationPlayer").play("SummonRedBats")
 
 func _on_BatSpawnTimer_timeout():
 	var bat_instance = bat_scene.instance()

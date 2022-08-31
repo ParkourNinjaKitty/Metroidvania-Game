@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=2]
+[gd_scene load_steps=39 format=2]
 
 [ext_resource path="res://Enemy/Bosses/Sewers/Scripts/RatKing.gd" type="Script" id=1]
 [ext_resource path="res://Enemy/Bosses/Sewers/Scripts/Sceptre.gd" type="Script" id=2]
@@ -11,6 +11,7 @@
 [ext_resource path="res://Enemy/EnemyHitbox.gd" type="Script" id=9]
 [ext_resource path="res://light.png" type="Texture" id=10]
 [ext_resource path="res://Player/Scenes/ScreenShakeController.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Enemy/Bosses/Sewers/Scripts/RatKingFlip.gd" type="Script" id=12]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 13, 6 )
@@ -366,7 +367,7 @@ tracks/4/keys = {
 "values": [ Vector2( -6, 2 ), Vector2( 0, -4 ), Vector2( 0, 0 ), Vector2( 0, 0 ), Vector2( -6, 2 ) ]
 }
 tracks/5/type = "value"
-tracks/5/path = NodePath("Sprite:flip_h")
+tracks/5/path = NodePath("Scepter/Sprite:flip_h")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/imported = false
@@ -377,30 +378,32 @@ tracks/5/keys = {
 "update": 1,
 "values": [ false ]
 }
-tracks/6/type = "value"
-tracks/6/path = NodePath("Scepter/Sprite:flip_h")
+tracks/6/type = "method"
+tracks/6/path = NodePath("ScreenShakeController")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/imported = false
 tracks/6/enabled = true
 tracks/6/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ false ]
-}
-tracks/7/type = "method"
-tracks/7/path = NodePath("ScreenShakeController")
-tracks/7/interp = 1
-tracks/7/loop_wrap = true
-tracks/7/imported = false
-tracks/7/enabled = true
-tracks/7/keys = {
 "times": PoolRealArray( 0.4 ),
 "transitions": PoolRealArray( 1 ),
 "values": [ {
 "args": [ 0.2, 0.8 ],
 "method": "shake"
+} ]
+}
+tracks/7/type = "method"
+tracks/7/path = NodePath("Sprite")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [ false ],
+"method": "flip"
 } ]
 }
 
@@ -420,19 +423,19 @@ tracks/0/keys = {
 "values": [ 4, 5, 6, 7, 4 ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("Sprite:flip_h")
+tracks/1/path = NodePath("Scepter/Light2D:energy")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ true ]
+"times": PoolRealArray( 0, 0.3, 0.4, 1.4, 1.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ 0.2, 0.2, 0.4, 0.4, 0.2 ]
 }
 tracks/2/type = "value"
-tracks/2/path = NodePath("Scepter/Light2D:energy")
+tracks/2/path = NodePath("Scepter/Light2D:texture_scale")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
@@ -441,68 +444,70 @@ tracks/2/keys = {
 "times": PoolRealArray( 0, 0.3, 0.4, 1.4, 1.5 ),
 "transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
 "update": 0,
-"values": [ 0.2, 0.2, 0.4, 0.4, 0.2 ]
+"values": [ 0.1, 0.1, 0.3, 0.3, 0.1 ]
 }
 tracks/3/type = "value"
-tracks/3/path = NodePath("Scepter/Light2D:texture_scale")
+tracks/3/path = NodePath("Scepter:rotation_degrees")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/imported = false
 tracks/3/enabled = true
 tracks/3/keys = {
-"times": PoolRealArray( 0, 0.3, 0.4, 1.4, 1.5 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
-"update": 0,
-"values": [ 0.1, 0.1, 0.3, 0.3, 0.1 ]
-}
-tracks/4/type = "value"
-tracks/4/path = NodePath("Scepter:rotation_degrees")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/keys = {
 "times": PoolRealArray( 0, 0.2, 1.2, 1.5 ),
 "transitions": PoolRealArray( 1, 1, 1, 1 ),
 "update": 0,
 "values": [ 0.0, -90.0, -90.0, 0.0 ]
 }
-tracks/5/type = "value"
-tracks/5/path = NodePath("Scepter:position")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/keys = {
+tracks/4/type = "value"
+tracks/4/path = NodePath("Scepter:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
 "times": PoolRealArray( 0, 0.2, 0.4, 1.2, 1.5 ),
 "transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
 "update": 0,
 "values": [ Vector2( 6, 2 ), Vector2( 0, -4 ), Vector2( 0, 0 ), Vector2( 0, 0 ), Vector2( 6, 2 ) ]
 }
-tracks/6/type = "value"
-tracks/6/path = NodePath("Scepter/Sprite:flip_h")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/keys = {
+tracks/5/type = "value"
+tracks/5/path = NodePath("Scepter/Sprite:flip_h")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
 "values": [ true ]
 }
-tracks/7/type = "method"
-tracks/7/path = NodePath("ScreenShakeController")
-tracks/7/interp = 1
-tracks/7/loop_wrap = true
-tracks/7/imported = false
-tracks/7/enabled = true
-tracks/7/keys = {
+tracks/6/type = "method"
+tracks/6/path = NodePath("ScreenShakeController")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
 "times": PoolRealArray( 0.4 ),
 "transitions": PoolRealArray( 1 ),
 "values": [ {
 "args": [ 0.2, 0.8 ],
 "method": "shake"
+} ]
+}
+tracks/7/type = "method"
+tracks/7/path = NodePath("Sprite")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [ true ],
+"method": "flip"
 } ]
 }
 
@@ -683,6 +688,143 @@ tracks/0/keys = {
 "transitions": PoolRealArray( 1, 1 ),
 "update": 1,
 "values": [ 8, 3 ]
+}
+
+[sub_resource type="Animation" id=24]
+resource_name = "Phase1"
+tracks/0/type = "method"
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 1 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "phase1_func"
+} ]
+}
+
+[sub_resource type="Animation" id=25]
+resource_name = "Phase2"
+length = 2.0
+tracks/0/type = "method"
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 2 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "phase2_func"
+} ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite/BlueLight:enabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.001, 0.1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ false, false, true ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Sprite/BlueLight:texture_scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.01, 0.1 ]
+}
+
+[sub_resource type="Animation" id=26]
+resource_name = "Phase3"
+length = 2.0
+tracks/0/type = "method"
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 2 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "phase3_func"
+} ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite/LeftRedLight:enabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Sprite/BlueLight:enabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Sprite/RightRedLight:enabled")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Sprite/LeftRedLight:texture_scale")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.01, 0.01 ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("Sprite/RightRedLight:texture_scale")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.01, 0.1 ]
 }
 
 [sub_resource type="RectangleShape2D" id=14]
@@ -891,18 +1033,13 @@ extents = Vector2( 3, 1 )
 [sub_resource type="RectangleShape2D" id=23]
 extents = Vector2( 19, 6 )
 
-[node name="RatKing" type="KinematicBody2D" groups=[
-"Boss",
-]]
-position = Vector2( 96, 58 )
+[node name="RatKing" type="KinematicBody2D" groups=["Boss"]]
+position = Vector2( 96, -6 )
 collision_layer = 4
 script = ExtResource( 1 )
 phase1_attack_cooldown = 3
 phase2_attack_cooldown = 3
 phase3_attack_cooldown = 4
-phase1_transition_cooldown = 1
-phase2_transition_cooldown = 2
-phase3_transition_cooldown = 2
 phase1_health = 15
 phase2_health = 10
 phase3_health = 10
@@ -915,6 +1052,31 @@ texture = ExtResource( 8 )
 flip_h = true
 hframes = 26
 frame = 4
+script = ExtResource( 12 )
+
+[node name="LeftRedLight" type="Light2D" parent="Sprite"]
+position = Vector2( -8.5, -1.5 )
+enabled = false
+texture = ExtResource( 10 )
+texture_scale = 0.01
+color = Color( 0.705882, 0.12549, 0.164706, 1 )
+energy = 0.5
+
+[node name="BlueLight" type="Light2D" parent="Sprite"]
+position = Vector2( -6.5, -1.5 )
+enabled = false
+texture = ExtResource( 10 )
+texture_scale = 0.01
+color = Color( 0.12549, 0.839216, 0.780392, 1 )
+energy = 0.5
+
+[node name="RightRedLight" type="Light2D" parent="Sprite"]
+position = Vector2( -4.5, -1.5 )
+enabled = false
+texture = ExtResource( 10 )
+texture_scale = 0.1
+color = Color( 0.705882, 0.12549, 0.164706, 1 )
+energy = 0.5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visible = false
@@ -954,6 +1116,11 @@ anims/Spawn = SubResource( 12 )
 
 [node name="HurtAnimationPlayer" type="AnimationPlayer" parent="."]
 anims/Hurt = SubResource( 13 )
+
+[node name="PhaseTransitions" type="AnimationPlayer" parent="."]
+anims/Phase1 = SubResource( 24 )
+anims/Phase2 = SubResource( 25 )
+anims/Phase3 = SubResource( 26 )
 
 [node name="Phase1Cooldown" type="Timer" parent="."]
 one_shot = true
@@ -1057,6 +1224,7 @@ land_shake_amount = 0.3
 one_shot = true
 
 [node name="GroundCollision" type="Area2D" parent="JumpAttack"]
+visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="JumpAttack/GroundCollision"]
 position = Vector2( 0, 6 )

@@ -31,11 +31,11 @@ func _on_WallCollision_body_entered(_body):
 		get_parent().get_node("ScreenShakeController").shake(screen_shake_amount, 0.8)
 		if times_left_to_dash > 0:
 			if get_parent().velocity.x > 0:
-				get_parent().get_node("Sprite").flip_h = false
+				get_parent().get_node("Sprite").flip(false)
 				get_parent().get_node("Scepter/Sprite").flip_h = false
 				get_parent().get_node("Scepter").position = get_parent().get_node("Scepter").left_resting_position
 			if get_parent().velocity.x < 0:
-				get_parent().get_node("Sprite").flip_h = true
+				get_parent().get_node("Sprite").flip(true)
 				get_parent().get_node("Scepter/Sprite").flip_h = true
 				get_parent().get_node("Scepter").position = get_parent().get_node("Scepter").right_resting_position
 			get_parent().velocity.x *= -1
@@ -44,11 +44,11 @@ func _on_WallCollision_body_entered(_body):
 			get_parent().velocity.x = 0
 			is_attacking = false
 			if get_parent().get_node("Sprite").flip_h == true:
-				get_parent().get_node("Sprite").flip_h = false
+				get_parent().get_node("Sprite").flip(false)
 				get_parent().get_node("Scepter/Sprite").flip_h = false
 				get_parent().get_node("Scepter").position = get_parent().get_node("Scepter").left_resting_position
 			if get_parent().get_node("Sprite").flip_h == false:
-				get_parent().get_node("Sprite").flip_h = true
+				get_parent().get_node("Sprite").flip(true)
 				get_parent().get_node("Scepter/Sprite").flip_h = true
 				get_parent().get_node("Scepter").position = get_parent().get_node("Scepter").right_resting_position
 			get_parent().get_node("AnimationPlayer").play("Idle")

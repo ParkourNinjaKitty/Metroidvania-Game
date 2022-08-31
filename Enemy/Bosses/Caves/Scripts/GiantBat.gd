@@ -28,7 +28,7 @@ func phase1_func():
 
 func phase2_func():
 	velocity = Vector2(0, 0)
-	var next_attack = phase1.keys()[randi() % phase1.size()]
+	var next_attack = phase2.keys()[randi() % phase2.size()]
 	print(next_attack)
 	if next_attack == "GROUNDSLAM":
 		groundslam()
@@ -41,7 +41,7 @@ func phase3_func():
 
 #phase 1 attacks
 func verticalbats():
-	pass
+	$VerticalBats.call("vertical_bats")
 
 func groundsweep():
 	$GroundSweep.call("sweep")
@@ -51,7 +51,7 @@ func summonbats():
 
 #phase 2 attacks
 func groundslam():
-	pass
+	$AnimationPlayer.play("GroundSlamTelegraph")
 
 func summonredbats():
 	$AnimationPlayer.play("SummonRedBats")
@@ -60,11 +60,25 @@ func summonredbats():
 func _on_Phase1Cooldown_timeout():
 	if phase == phases.PHASE1:
 		phase1_func()
+	else:
+		$PhaseTransitions.play("Phase2")
 
 func _on_Phase2Cooldown_timeout():
 	if phase == phases.PHASE2:
 		phase2_func()
+	else:
+		$PhaseTransitions.play("Phase3")
 
 func _on_Phase3Cooldown_timeout():
 	if phase == phases.PHASE3:
 		phase3_func()
+
+func _on_Hurtbox_area_entered(area):
+	if area.get_parent().is_in_group("Player"):
+		health -= area.get_parent().damage
+		if $Sprite.frame <= 4:
+			$HurtAnimationPlayer.play("UpsidedownHurt")
+		elif $Sprite.frame <= 10:
+			$HurtAnimationPlayer.play("FlyingHurt")
+		elif $Sprite.frame <= 11:
+			$HurtAnimationPlayer.play("SidewaysHurt")

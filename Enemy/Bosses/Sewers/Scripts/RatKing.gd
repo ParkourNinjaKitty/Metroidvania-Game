@@ -68,19 +68,23 @@ func ratrain():
 
 func dash():
 	if global_position.x - get_tree().get_nodes_in_group("Player")[0].global_position.x > 0:
-		$Sprite.flip_h = false
+		$Sprite.flip(false)
 	else:
-		$Sprite.flip_h = true
+		$Sprite.flip(true)
 	$AnimationPlayer.play("DashTelegraph")
 
 #cooldown timers
 func _on_Phase1Cooldown_timeout():
 	if phase == phases.PHASE1:
 		phase1_func()
+	else:
+		$PhaseTransitions.play("Phase2")
 
 func _on_Phase2Cooldown_timeout():
 	if phase == phases.PHASE2:
 		phase2_func()
+	else:
+		$PhaseTransitions.play("Phase3")
 
 func _on_Phase3Cooldown_timeout():
 	if phase == phases.PHASE3:

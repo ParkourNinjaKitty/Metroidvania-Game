@@ -40,13 +40,13 @@ func throw():
 	throw_attack = true
 	throw_wall_collision = true
 	if global_position.x - get_tree().get_nodes_in_group("Player")[0].global_position.x < 0:
-		get_parent().get_node("Sprite").flip_h = true
+		get_parent().get_node("Sprite").flip(true)
 		position = right_resting_position
 		$Sprite.flip_h = true
 		throw_direction = 1
 		$ThrowAttackTelegraph.play("ThrowRight")
 	else:
-		get_parent().get_node("Sprite").flip_h = false
+		get_parent().get_node("Sprite").flip(false)
 		position = left_resting_position
 		$Sprite.flip_h = false
 		throw_direction = -1
@@ -71,10 +71,10 @@ func _on_BossCollision_body_entered(body):
 		throw_boss_collision = false
 		throw_direction = 0
 		if throw_direction == -1:
-			get_parent().get_node("Sprite").flip_h = false
+			get_parent().get_node("Sprite").flip(false)
 			position = left_resting_position
 		if throw_direction == 1:
-			get_parent().get_node("Sprite").flip_h = true
+			get_parent().get_node("Sprite").flip(true)
 			position = right_resting_position
 		velocity = Vector2(0, 0)
 		global_position = body.global_position

@@ -10,10 +10,10 @@ func _process(_delta):
 	if is_attacking == true:
 		if global_position.x-get_tree().get_nodes_in_group("Player")[0].global_position.x <= -direction_change_leeway:
 			get_parent().velocity = Vector2(chase_speed, 0)
-			get_parent().get_node("Sprite").flip_h = true
+			get_parent().get_node("Sprite").flip(true)
 		if global_position.x-get_tree().get_nodes_in_group("Player")[0].global_position.x >= direction_change_leeway:
 			get_parent().velocity = Vector2(-chase_speed, 0)
-			get_parent().get_node("Sprite").flip_h = false
+			get_parent().get_node("Sprite").flip(false)
 
 func chase():
 	$ChaseAttackTimer.start(chase_attack_length)

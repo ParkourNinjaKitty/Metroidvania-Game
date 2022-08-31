@@ -4,10 +4,6 @@ export var phase1_attack_cooldown = 0
 export var phase2_attack_cooldown = 0
 export var phase3_attack_cooldown = 0
 
-export var phase1_transition_cooldown = 0
-export var phase2_transition_cooldown = 0
-export var phase3_transition_cooldown = 0
-
 export var phase1_health = 0
 export var phase2_health = 0
 export var phase3_health = 0
@@ -40,11 +36,9 @@ func _process(_delta):
 			phases.PHASE1:
 				if health <= max_health - phase1_health:
 					phase = phases.PHASE2
-					$Phase2Cooldown.start(phase2_transition_cooldown)
 			phases.PHASE2:
 				if health <= max_health - phase1_health - phase2_health:
 					phase = phases.PHASE3
-					$Phase3Cooldown.start(phase3_transition_cooldown)
 			phases.PHASE3:
 				if health <= max_health - phase1_health - phase2_health - phase3_health:
 					phase = phases.DEAD
@@ -72,7 +66,7 @@ func spawn():
 func start_animation_over():
 	get_tree().get_nodes_in_group("Player")[0].can_move = true
 	phase = phases.PHASE1
-	$Phase1Cooldown.start(phase1_transition_cooldown)
+	$PhaseTransitions.play("Phase1")
 
 func _on_Hurtbox_area_entered(area):
 	if area.get_parent().is_in_group("Player"):
